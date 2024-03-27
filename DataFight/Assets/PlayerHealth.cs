@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 {
 
     public int MaxHealt = 100; // A maximális életerõ
-    public int jelenlegiElet; // Jelenlegi életerõ
+    public int jelenlegiElet = 50; // Jelenlegi életerõ
 
     public GameObject HealthText; // UI szöveg a játékos életerejének megjelenítéséhez
     private TMP_Text text;
