@@ -8,8 +8,8 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 public class PlayerHealth : MonoBehaviour
 {
 
-    public int MaxHealt = 100; // A maximális életerõ
-    public int jelenlegiElet = 50; // Jelenlegi életerõ
+    public int MaxHealth = 100; // A maximális életerõ
+    public int ActualHealth = 50; // Jelenlegi életerõ
 
     public TMP_Text HealthText; // UI szöveg a játékos életerejének megjelenítéséhez
     private TMP_Text text;
@@ -19,17 +19,17 @@ public class PlayerHealth : MonoBehaviour
     {
         text = HealthText.GetComponent<TMP_Text>();
 
-        jelenlegiElet = MaxHealt;
+        ActualHealth = MaxHealth;
         FrissitEletUI();
     }
 
     public void VeszitEletet(int mennyiseg)
     {
-        jelenlegiElet -= mennyiseg;
+        ActualHealth -= mennyiseg;
 
-        if (jelenlegiElet <= 0)
+        if (ActualHealth <= 0)
         {
-            jelenlegiElet = 0;
+            ActualHealth = 0;
 
             Debug.Log("meghaltal");
             // A játékos meghalt, írhat itt további kódot, például a játék újraindítását vagy más tevékenységeket.
@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (HealthText != null)
         {
-            text.text = "Életerõ: " + jelenlegiElet.ToString();
+            text.text = ActualHealth.ToString();
         }
     }
 }
