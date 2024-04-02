@@ -8,10 +8,12 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 public class PlayerHealth : MonoBehaviour
 {
 
-    public int MaxHealth = 100; // A maximális életerõ
-    public int ActualHealth = 50; // Jelenlegi életerõ
+    public int MaxHealth = 5; // A maximï¿½lis ï¿½leterï¿½
+    public int CurrentHealth = 5; // Jelenlegi ï¿½leterï¿½
 
-    public TMP_Text HealthText; // UI szöveg a játékos életerejének megjelenítéséhez
+    public Image FaceImage;
+    //public AnimationClip[] MoodAnimations;
+    public TMP_Text HealthText; // UI szï¿½veg a jï¿½tï¿½kos ï¿½leterejï¿½nek megjelenï¿½tï¿½sï¿½hez
     private TMP_Text text;
 
 
@@ -19,30 +21,39 @@ public class PlayerHealth : MonoBehaviour
     {
         text = HealthText.GetComponent<TMP_Text>();
 
-        ActualHealth = MaxHealth;
-        FrissitEletUI();
+        CurrentHealth = MaxHealth;
+        UpdateHealthUI();
     }
 
-    public void VeszitEletet(int mennyiseg)
+    public void DecreaseHealth(int amount)
     {
-        ActualHealth -= mennyiseg;
+        CurrentHealth -= amount;
 
-        if (ActualHealth <= 0)
+        if (CurrentHealth <= 0)
         {
-            ActualHealth = 0;
+            CurrentHealth = 0;
 
             Debug.Log("meghaltal");
-            // A játékos meghalt, írhat itt további kódot, például a játék újraindítását vagy más tevékenységeket.
+            // A jï¿½tï¿½kos meghalt, ï¿½rhat itt tovï¿½bbi kï¿½dot, pï¿½ldï¿½ul a jï¿½tï¿½k ï¿½jraindï¿½tï¿½sï¿½t vagy mï¿½s tevï¿½kenysï¿½geket.
         }
 
-        FrissitEletUI();
+        UpdateHealthUI();
     }
 
-    void FrissitEletUI()
+    void UpdateHealthUI()
     {
         if (HealthText != null)
         {
-            text.text = ActualHealth.ToString();
+            text.text = CurrentHealth.ToString();
         }
     }
+
+    void MoodChanging(){
+
+    float HealthRate = CurrentHealth / MaxHealth;
+
+    }
+
+
+
 }
