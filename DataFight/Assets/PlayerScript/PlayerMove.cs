@@ -31,6 +31,8 @@ public class PlayerMove : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         rb.position += movement * Time.fixedDeltaTime;
+
+        //spriteRenderer.flipX=true;
     }
 
     private void Update()
@@ -60,4 +62,6 @@ public class PlayerMove : MonoBehaviour
             isGrounded = false;
         }
     }
+
+
 }
