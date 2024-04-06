@@ -32,7 +32,11 @@ public class PlayerMove : MonoBehaviour
         Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         rb.position += movement * Time.fixedDeltaTime;
 
-        //spriteRenderer.flipX=true;
+        
+
+        spriteRenderer.flipX = horizontalInput < 0 ? true : false;
+
+
     }
 
     private void Update()
@@ -41,13 +45,13 @@ public class PlayerMove : MonoBehaviour
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            isGrounded = false; // Friss�tj�k a talajon l�v�s �llapotot
+            isGrounded = false; // 
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Ellen�rizz�k, hogy a karakter a talajon vagy egy ugrathat� objektumon van-e
+        // talajon van 
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Jumpable"))
         {
             isGrounded = true;
@@ -56,7 +60,7 @@ public class PlayerMove : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        // Ha a karakter nem �rintkezik a talajjal, akkor nem lehet talajon
+        // nincs a talajon
         if (!collision.gameObject.CompareTag("Ground") && !collision.gameObject.CompareTag("Jumpable"))
         {
             isGrounded = false;
