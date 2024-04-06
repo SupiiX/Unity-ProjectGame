@@ -14,6 +14,12 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private float horizontalInput;
 
+    //--
+    private bool FacingRight = true;
+    private float moveDirection = 0;
+    private Transform T;
+
+    //
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,21 +31,23 @@ public class PlayerMove : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         rb.position += movement * Time.fixedDeltaTime;
+
+        //spriteRenderer.flipX=true;
     }
 
     private void Update()
     {
-        // Ugrás ellenõrzése csak akkor, ha a karakter talajon van
+        // Ugrï¿½s ellenï¿½rzï¿½se csak akkor, ha a karakter talajon van
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            isGrounded = false; // Frissítjük a talajon lévés állapotot
+            isGrounded = false; // Frissï¿½tjï¿½k a talajon lï¿½vï¿½s ï¿½llapotot
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Ellenõrizzük, hogy a karakter a talajon vagy egy ugratható objektumon van-e
+        // Ellenï¿½rizzï¿½k, hogy a karakter a talajon vagy egy ugrathatï¿½ objektumon van-e
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Jumpable"))
         {
             isGrounded = true;
@@ -48,10 +56,12 @@ public class PlayerMove : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        // Ha a karakter nem érintkezik a talajjal, akkor nem lehet talajon
+        // Ha a karakter nem ï¿½rintkezik a talajjal, akkor nem lehet talajon
         if (!collision.gameObject.CompareTag("Ground") && !collision.gameObject.CompareTag("Jumpable"))
         {
             isGrounded = false;
         }
     }
+
+
 }
