@@ -3,17 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class PlayerHealth : MonoBehaviour
 {
 
-    public int MaxHealth = 5; // A maxim�lis �leter�
-    public int CurrentHealth = 5; // Jelenlegi �leter�
+    public int MaxHealth = 4; // A maxim lis  leter 
+    public int CurrentHealth = 4; // Jelenlegi  leter 
+    public TMP_Text HealthText;
 
-    public Image FaceImage;
-    //public AnimationClip[] MoodAnimations;
-    public TMP_Text HealthText; // UI sz�veg a j�t�kos �leterej�nek megjelen�t�s�hez
+    public UnityEngine.UI.Image Heart;
+    public Sprite[] FaceImage;
+
+
     private TMP_Text text;
 
 
@@ -34,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
             CurrentHealth = 0;
 
             Debug.Log("meghaltal");
-            // A j�t�kos meghalt, �rhat itt tov�bbi k�dot, p�ld�ul a j�t�k �jraind�t�s�t vagy m�s tev�kenys�geket.
+            // A j t kos meghalt,  rhat itt tov bbi k dot, p ld ul a j t k  jraind t s t vagy m s tev kenys geket.
         }
 
         UpdateHealthUI();
@@ -46,11 +49,9 @@ public class PlayerHealth : MonoBehaviour
         {
             text.text = CurrentHealth.ToString();
         }
-    }
 
-    void MoodChanging(){
+        Heart.sprite = FaceImage[CurrentHealth];
 
-    float HealthRate = CurrentHealth / MaxHealth;
 
     }
 

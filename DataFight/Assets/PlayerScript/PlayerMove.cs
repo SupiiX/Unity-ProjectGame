@@ -14,12 +14,8 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private float horizontalInput;
 
-    //--
-    private bool FacingRight = true;
-    private float moveDirection = 0;
-    private Transform T;
+    private bool FaceChanged;
 
-    //
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,9 +28,22 @@ public class PlayerMove : MonoBehaviour
         Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         rb.position += movement * Time.fixedDeltaTime;
 
-        
 
-        spriteRenderer.flipX = horizontalInput < 0 ? true : false;
+        if (horizontalInput < 0) // Balra mozgás esetén
+        {
+            spriteRenderer.flipX = true; // Tükrözve
+            FaceChanged = true;
+        }
+        else if (horizontalInput > 0) // Jobbra mozgás esetén
+        {
+            spriteRenderer.flipX = false; // Normál
+            FaceChanged = false;
+        }
+        // Ha a karakter nem mozog, de az előző mozgás irányában volt az arc
+        else if (FaceChanged == true)
+        {
+            spriteRenderer.flipX = true; // Tükrözve marad
+        }
 
 
     }
