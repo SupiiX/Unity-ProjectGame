@@ -15,9 +15,8 @@ public class PlayerMove : MonoBehaviour
     private float horizontalInput;
 
     //--
-    private bool FacingRight = true;
-    private float moveDirection = 0;
-    private Transform T;
+   
+    // private Transform T;
 
     //
     void Start()

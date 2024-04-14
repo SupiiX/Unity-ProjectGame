@@ -11,7 +11,7 @@ public class HandController : MonoBehaviour
    
     private Animator animator1;
     private Animator animator2;
-    private Animator animator3;
+   private Animator animator3;
 
     private SpriteRenderer spriteRenderer1;
     private SpriteRenderer spriteRenderer2;
@@ -21,9 +21,9 @@ public class HandController : MonoBehaviour
 
     void Start()
     {
-        animator1 = object1.GetComponent<Animator>();
-        animator2 = object2.GetComponent<Animator>();
-        animator3 = object3.GetComponent<Animator>();
+        //animator1 = object1.GetComponent<Animator>();
+        //animator2 = object2.GetComponent<Animator>();
+        //animator3 = object3.GetComponent<Animator>();
 
         spriteRenderer1 = object1.GetComponent<SpriteRenderer>();
         spriteRenderer2 = object2.GetComponent<SpriteRenderer>();
@@ -34,7 +34,7 @@ public class HandController : MonoBehaviour
 
     void Update()
     {
-        // Olvassuk be a joystick irányát
+        // Olvassuk be a joystick irï¿½nyï¿½t
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -43,7 +43,7 @@ public class HandController : MonoBehaviour
         spriteRenderer3.flipX = horizontal < 0 ? true : false;
 
 
-        // Alapértelmezett eset, ha a joystick nem mozog
+        // Alapï¿½rtelmezett eset, ha a joystick nem mozog
         if (horizontal == 0 && vertical == 0)
         {
             SetActiveObject(object1);
@@ -55,13 +55,13 @@ public class HandController : MonoBehaviour
             SetActiveObject(object1);
             animator1.SetBool("PlayAnimation", true);
         }
-        // Ha a joystick átlósan felfelé van mozgatva
+        // Ha a joystick ï¿½tlï¿½san felfelï¿½ van mozgatva
         else if (horizontal > 0.6 && vertical > 0.6 || horizontal < -0.6 && vertical > 0.6)
         {
             SetActiveObject(object2);
             animator2.SetBool("PlayAnimation", true);
         }
-        // Ha a joystick felfelé van mozgatva
+        // Ha a joystick felfelï¿½ van mozgatva
         else if (vertical == 1 && horizontal < 0.4)
         {
             SetActiveObject(object3);
@@ -69,7 +69,7 @@ public class HandController : MonoBehaviour
         }
     }
 
-    // Minden más objektumot inaktívvá tesz és az adott objektumot aktívvá teszi
+    // Minden mï¿½s objektumot inaktï¿½vvï¿½ tesz ï¿½s az adott objektumot aktï¿½vvï¿½ teszi
     void SetActiveObject(GameObject activeObject)
     {
         object1.SetActive(false);
@@ -86,7 +86,7 @@ public class HandController : MonoBehaviour
 
     void Flip(float horizontalInput)
     {
-        // Karakter forgatása az irány függvényében
+        // Karakter forgatï¿½sa az irï¿½ny fï¿½ggvï¿½nyï¿½ben
         if (horizontalInput > 0 && !isFacingRight || horizontalInput < 0 && isFacingRight)
         {
             isFacingRight = !isFacingRight;

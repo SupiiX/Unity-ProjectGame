@@ -11,19 +11,42 @@ public class PlayerHealth : MonoBehaviour
     public int MaxHealth = 5; // A maxim�lis �leter�
     public int CurrentHealth = 5; // Jelenlegi �leter�
 
-    public Image FaceImage;
     //public AnimationClip[] MoodAnimations;
     public TMP_Text HealthText; // UI sz�veg a j�t�kos �leterej�nek megjelen�t�s�hez
+    public GameObject ShowImage;
+    public GameObject[] face;
+
+    
+
+    private Image ShowI;
     private TMP_Text text;
 
 
+    public List<Image> image;
+
     private void Start()
     {
+
+        foreach (var face in face){
+
+            image.Add(face.GetComponent<Image>());
+        }
+
+        ShowI = ShowImage.GetComponent<Image>();
+
         text = HealthText.GetComponent<TMP_Text>();
 
         CurrentHealth = MaxHealth;
         UpdateHealthUI();
     }
+
+void Update(){
+MoodChanging();
+
+}
+
+
+
 
     public void DecreaseHealth(int amount)
     {
@@ -50,7 +73,9 @@ public class PlayerHealth : MonoBehaviour
 
     void MoodChanging(){
 
-    float HealthRate = CurrentHealth / MaxHealth;
+    ShowI = image[CurrentHealth-1];
+
+
 
     }
 
