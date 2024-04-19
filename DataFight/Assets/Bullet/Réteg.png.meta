@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7b4c37fadf8a76146b4e7d0655e5e798
+guid: 58e334ecf208bbe4098f135b6feaf69e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "R\xE9teg_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 19
+        width: 58
+        height: 78
+      alignment: 9
+      pivot: {x: 0.49608952, y: 0.5570008}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b10f04130ea9dc744b3e687bd5c0bde3
+      internalID: 1137227142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "R\xE9teg_1"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 18
+        width: 67
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5196399, y: 0.4933373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99e9855b107386e4d9b751bbe9c7dc4e
+      internalID: -1474483253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "R\xE9teg_2"
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 94
+        height: 97
+      alignment: 9
+      pivot: {x: 0.5546036, y: 0.5513971}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c362dc124fefa2e4ea0739d05df0c2f4
+      internalID: -715116693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "R\xE9teg_3"
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 0
+        width: 103
+        height: 97
+      alignment: 9
+      pivot: {x: 0.5143572, y: 0.4725679}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec447b23f45fb543bb0dd24dd8bc467
+      internalID: 354512553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +190,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "R\xE9teg_0": 1137227142
+      "R\xE9teg_1": -1474483253
+      "R\xE9teg_2": -715116693
+      "R\xE9teg_3": 354512553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

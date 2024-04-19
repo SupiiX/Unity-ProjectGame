@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Shooting : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class Shooting : MonoBehaviour
 
 
     public GameObject BulletSpawnPoint;
-
+    public GameObject BulletSpawnPoint2;
+    public GameObject BulletSpawnPoint3;
 
     private bool FirstShoot = true;
 
@@ -55,11 +57,53 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
         // Frissítjük a következõ lövés idõpontját a lövési gyakoriság alapján
         nextFireTime = Time.time + 1f / fireRate;
 
         // Létrehozzuk a lövedéket és beállítjuk annak sebességét a mozgási irány alapján
-        GameObject bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
+        //GameObject bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
+        //**
+        GameObject bullet = bulletPrefab;
+
+       
+
+        if (horizontal == 0 && vertical == 0)
+        {
+             bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
+        }
+        // Ha a joystick jobbra van mozgatva
+        else if (horizontal > 0 && vertical < 0.2 || horizontal < 0 && vertical < 0.2)
+        {
+             bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
+        }
+        // Ha a joystick átlósan felfelé van mozgatva
+        else if (horizontal > 0.6 && vertical > 0.6 || horizontal < -0.6 && vertical > 0.6)
+        {
+             bullet = Instantiate(bulletPrefab, BulletSpawnPoint2.transform.position, Quaternion.identity);
+        }
+        // Ha a joystick felfelé van mozgatva
+        else if (vertical == 1 && horizontal < 0.4)
+        {
+             bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
+        }
+
+        SpriteRenderer spriteRenderer = bullet.GetComponent<SpriteRenderer>();
+
+        
+
+        if (lastMoveDirection.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX= false;
+        }
+
+        //**
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.velocity = lastMoveDirection.normalized * bulletSpeed;
 
