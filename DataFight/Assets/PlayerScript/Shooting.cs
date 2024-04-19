@@ -87,7 +87,9 @@ public class Shooting : MonoBehaviour
         // Ha a joystick felfelé van mozgatva
         else if (vertical == 1 && horizontal < 0.4)
         {
-             bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
+        
+
+            bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
         }
 
         SpriteRenderer spriteRenderer = bullet.GetComponent<SpriteRenderer>();
@@ -98,10 +100,16 @@ public class Shooting : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
+        else if (vertical == 1)
+        {
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
         else
         {
             spriteRenderer.flipX= false;
         }
+
+
 
         //**
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
