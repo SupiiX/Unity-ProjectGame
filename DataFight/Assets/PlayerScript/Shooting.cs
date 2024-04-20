@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
@@ -17,6 +18,13 @@ public class Shooting : MonoBehaviour
     public GameObject BulletSpawnPoint2;
     public GameObject BulletSpawnPoint3;
 
+
+    private Animator BulletSpawnPointAnimator1;
+    private Animator BulletSpawnPointAnimator2;
+    private Animator BulletSpawnPointAnimator3;
+
+
+
     private bool FirstShoot = true;
 
     private Vector2 lastMoveDirection;  // Utolsó ismert mozgási irány
@@ -27,6 +35,11 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        BulletSpawnPointAnimator1 = BulletSpawnPoint.GetComponent<Animator>();
+        BulletSpawnPointAnimator2 = BulletSpawnPoint.GetComponent<Animator>();
+        BulletSpawnPointAnimator3 = BulletSpawnPoint.GetComponent<Animator>();
+
     }
 
     void Update()
@@ -69,22 +82,34 @@ public class Shooting : MonoBehaviour
         if (horizontal == 0 && vertical == 0)
         {
              bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
+
+            BulletSpawnPointAnimator1.SetBool("BulletSpawn", true);
+            
+           
+           // BulletSpawnPointAnimator1.SetTrigger("BulletSpawnTrigger");
+
         }
         // Ha a joystick jobbra van mozgatva
         else if (horizontal > 0 && vertical < 0.2 || horizontal < 0 && vertical < 0.2)
         {
              bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
+
+            BulletSpawnPointAnimator1.SetBool("BulletSpawn", true);
         }
         // Ha a joystick átlósan felfelé van mozgatva
         else if (horizontal > 0.6 && vertical > 0.6 || horizontal < -0.6 && vertical > 0.6)
         {
              bullet = Instantiate(bulletPrefab, BulletSpawnPoint2.transform.position, Quaternion.identity);
+
+            BulletSpawnPointAnimator2.SetBool("BulletSpawn", true);
         }
         // Ha a joystick felfelé van mozgatva
         else if (vertical == 1 && horizontal < 0.4)
         {
         
             bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
+
+            BulletSpawnPointAnimator3.SetBool("BulletSpawn", true);
         }
 
         SpriteRenderer spriteRenderer = bullet.GetComponent<SpriteRenderer>();
@@ -114,6 +139,7 @@ public class Shooting : MonoBehaviour
         // Adjuk hozzá a lövedékhez egy "Bullet" címkét, hogy azonosíthassuk ellenségekkel való ütközésnél
         bullet.tag = "Bullet";
 
+        //BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
         // Adjuk hozzá az életerõ-csökkentõ komponenst a lövedékhez
         //bullet.AddComponent<BulletDamage>();
     }
