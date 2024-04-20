@@ -38,7 +38,7 @@ public class Shooting : MonoBehaviour
 
             if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
             {
-
+                 
                 // getbuttton
 
                 Shoot();
@@ -48,10 +48,10 @@ public class Shooting : MonoBehaviour
         }
         else
         {
-           // animator.SetBool("Shooting", false); // Ha nem lövünk, akkor az animáció bool értékét hamisra állítjuk
+           
         }
 
-        // Mozgási irány frissítése
+       
         UpdateLastMoveDirection();
     }
 
@@ -62,13 +62,9 @@ public class Shooting : MonoBehaviour
 
         // Frissítjük a következõ lövés idõpontját a lövési gyakoriság alapján
         nextFireTime = Time.time + 1f / fireRate;
-
-        // Létrehozzuk a lövedéket és beállítjuk annak sebességét a mozgási irány alapján
-        //GameObject bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
-        //**
+   
         GameObject bullet = bulletPrefab;
 
-       
 
         if (horizontal == 0 && vertical == 0)
         {
@@ -88,7 +84,6 @@ public class Shooting : MonoBehaviour
         else if (vertical == 1 && horizontal < 0.4)
         {
         
-
             bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
         }
 
@@ -113,6 +108,7 @@ public class Shooting : MonoBehaviour
 
         //**
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+
         bulletRb.velocity = lastMoveDirection.normalized * bulletSpeed;
 
         // Adjuk hozzá a lövedékhez egy "Bullet" címkét, hogy azonosíthassuk ellenségekkel való ütközésnél
@@ -124,7 +120,7 @@ public class Shooting : MonoBehaviour
 
     void UpdateLastMoveDirection()
     {
-        // Frissítjük az utolsó ismert mozgási irányt
+        
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -138,6 +134,20 @@ public class Shooting : MonoBehaviour
         if (horizontalInput != 0f || verticalInput != 0f)
         {
             lastMoveDirection = new Vector2(horizontalInput, verticalInput);
+        }
+        else
+        {
+            if (lastMoveDirection.x < 0)
+            {
+                lastMoveDirection = new Vector2(-1f, 0f);
+
+            }
+            else
+            {
+                lastMoveDirection = new Vector2(1f, 0f);
+           }
+            
+
         }
     }
 

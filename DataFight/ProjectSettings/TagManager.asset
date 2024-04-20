@@ -8,6 +8,7 @@ TagManager:
   - Jumpable
   - Ground
   - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
