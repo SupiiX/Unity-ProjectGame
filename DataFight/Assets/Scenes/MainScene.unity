@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 288223608}
   - component: {fileID: 288223607}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Ribbon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,15 +581,15 @@ RectTransform:
   m_GameObject: {fileID: 288223605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.395116, y: 2.457112, z: 3.4607213}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1104033819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 205, y: -141.45}
-  m_SizeDelta: {x: 106.61, y: 100.9095}
+  m_AnchoredPosition: {x: 217.1, y: -138}
+  m_SizeDelta: {x: 538, y: 248}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288223607
 MonoBehaviour:
