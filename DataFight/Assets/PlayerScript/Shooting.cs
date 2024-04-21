@@ -23,19 +23,14 @@ public class Shooting : MonoBehaviour
     private Animator BulletSpawnPointAnimator2;
     private Animator BulletSpawnPointAnimator3;
 
-    private bool AnimateLoop = false;
-
     private bool FirstShoot = true;
 
     private Vector2 lastMoveDirection;  // Utolsó ismert mozgási irány
-
-    private Animator animator;
-
+       
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-
+       
         BulletSpawnPointAnimator1 = BulletSpawnPoint.GetComponent<Animator>();
         BulletSpawnPointAnimator2 = BulletSpawnPoint2.GetComponent<Animator>();
         BulletSpawnPointAnimator3 = BulletSpawnPoint3.GetComponent<Animator>();
@@ -61,15 +56,14 @@ public class Shooting : MonoBehaviour
                 // getbuttton
 
                 Shoot();
-
-              
+                              
             }
         }
         else
         {
-            BulletSpawnPointAnimator1.SetBool("BulletSpawn", AnimateLoop = false);
-            BulletSpawnPointAnimator2.SetBool("BulletSpawn", AnimateLoop = false);
-            BulletSpawnPointAnimator3.SetBool("BulletSpawn", AnimateLoop = false);
+            BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
+            BulletSpawnPointAnimator2.SetBool("BulletSpawn", false);
+            BulletSpawnPointAnimator3.SetBool("BulletSpawn", false);
         }
 
        

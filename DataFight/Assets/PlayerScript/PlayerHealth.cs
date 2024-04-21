@@ -20,13 +20,19 @@ public class PlayerHealth : MonoBehaviour
     private TMP_Text text;
 
 
-    private void Start()
+    void Start()
     {
         text = HealthText.GetComponent<TMP_Text>();
 
         CurrentHealth = MaxHealth;
         UpdateHealthUI();
     }
+
+    void Update()
+    {
+        
+    }
+
 
     public void DecreaseHealth(int amount)
     {
@@ -37,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
             CurrentHealth = 0;
 
             Debug.Log("meghaltal");
-            // A j t kos meghalt,  rhat itt tov bbi k dot, p ld ul a j t k  jraind t s t vagy m s tev kenys geket.
+            
         }
 
         UpdateHealthUI();
