@@ -151,7 +151,7 @@ Animator:
   m_GameObject: {fileID: 125847445}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 852bee479980aa945addda0a4e65ccb0, type: 2}
+  m_Controller: {fileID: 9100000, guid: b8163162ce562a94fa1b8c5aba20d59a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2130,6 +2130,10 @@ PrefabInstance:
     - target: {fileID: 1887435478000862877, guid: af1dc7a699400cd42bc0e0f1449212e4, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887435478000862879, guid: af1dc7a699400cd42bc0e0f1449212e4, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -23,7 +23,7 @@ public class Shooting : MonoBehaviour
     private Animator BulletSpawnPointAnimator2;
     private Animator BulletSpawnPointAnimator3;
 
-
+    private bool AnimateLoop = false;
 
     private bool FirstShoot = true;
 
@@ -37,17 +37,23 @@ public class Shooting : MonoBehaviour
         animator = GetComponent<Animator>();
 
         BulletSpawnPointAnimator1 = BulletSpawnPoint.GetComponent<Animator>();
-        BulletSpawnPointAnimator2 = BulletSpawnPoint.GetComponent<Animator>();
-        BulletSpawnPointAnimator3 = BulletSpawnPoint.GetComponent<Animator>();
+        BulletSpawnPointAnimator2 = BulletSpawnPoint2.GetComponent<Animator>();
+        BulletSpawnPointAnimator3 = BulletSpawnPoint3.GetComponent<Animator>();
 
     }
 
     void Update()
     {
+
+    
+
+
         if (Input.GetButton("Fire1"))
         {
             // Lövés vezérlése
             //animator.SetBool("Shooting", true); // lövünk
+
+            
 
             if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
             {
@@ -56,12 +62,14 @@ public class Shooting : MonoBehaviour
 
                 Shoot();
 
-
+              
             }
         }
         else
         {
-           
+            BulletSpawnPointAnimator1.SetBool("BulletSpawn", AnimateLoop = false);
+            BulletSpawnPointAnimator2.SetBool("BulletSpawn", AnimateLoop = false);
+            BulletSpawnPointAnimator3.SetBool("BulletSpawn", AnimateLoop = false);
         }
 
        
@@ -83,33 +91,38 @@ public class Shooting : MonoBehaviour
         {
              bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
 
-            BulletSpawnPointAnimator1.SetBool("BulletSpawn", true);
-            
+            //BulletSpawnPointAnimator1.SetBool("BulletSpawn", AnimateLoop);
+
+            SetActiveObject(BulletSpawnPointAnimator1);
            
            // BulletSpawnPointAnimator1.SetTrigger("BulletSpawnTrigger");
 
         }
-        // Ha a joystick jobbra van mozgatva
+        // joystick jobbra van mozgatva
         else if (horizontal > 0 && vertical < 0.2 || horizontal < 0 && vertical < 0.2)
         {
              bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
 
-            BulletSpawnPointAnimator1.SetBool("BulletSpawn", true);
+            //BulletSpawnPointAnimator1.SetBool("BulletSpawn", AnimateLoop);
+            SetActiveObject(BulletSpawnPointAnimator1);
         }
-        // Ha a joystick átlósan felfelé van mozgatva
+        //  joystick átlósan felfelé van mozgatva
         else if (horizontal > 0.6 && vertical > 0.6 || horizontal < -0.6 && vertical > 0.6)
         {
              bullet = Instantiate(bulletPrefab, BulletSpawnPoint2.transform.position, Quaternion.identity);
 
-            BulletSpawnPointAnimator2.SetBool("BulletSpawn", true);
+            //BulletSpawnPointAnimator2.SetBool("BulletSpawn", AnimateLoop);
+            SetActiveObject(BulletSpawnPointAnimator2);
         }
-        // Ha a joystick felfelé van mozgatva
+        // joystick felfelé van mozgatva
         else if (vertical == 1 && horizontal < 0.4)
         {
         
             bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
 
-            BulletSpawnPointAnimator3.SetBool("BulletSpawn", true);
+            //BulletSpawnPointAnimator3.SetBool("BulletSpawn", AnimateLoop);
+            SetActiveObject(BulletSpawnPointAnimator3);
+
         }
 
         SpriteRenderer spriteRenderer = bullet.GetComponent<SpriteRenderer>();
@@ -143,6 +156,25 @@ public class Shooting : MonoBehaviour
         // Adjuk hozzá az életerõ-csökkentõ komponenst a lövedékhez
         //bullet.AddComponent<BulletDamage>();
     }
+
+
+    void SetActiveObject(Animator activeObject)
+    {
+        //object1.SetActive(false);
+        //object2.SetActive(false);
+        //object3.SetActive(false);
+
+        //activeObject.SetActive(true);
+
+        BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
+        BulletSpawnPointAnimator2.SetBool("BulletSpawn", false);
+        BulletSpawnPointAnimator3.SetBool("BulletSpawn", false);
+
+        activeObject.SetBool("BulletSpawn", true);
+
+
+    }
+
 
     void UpdateLastMoveDirection()
     {
