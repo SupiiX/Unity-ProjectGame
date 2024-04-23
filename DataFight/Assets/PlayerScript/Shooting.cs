@@ -11,6 +11,12 @@ public class Shooting : MonoBehaviour
     private float nextFireTime = 0f;  // Következõ lövés idõpontja
     //public int damagePerShot = 10;  // Lövedék sebzése
 
+
+    public GameObject BulletSpawnPoint;
+
+
+    private bool FirstShoot = true;
+
     private Vector2 lastMoveDirection;  // Utolsó ismert mozgási irány
 
     private Animator animator;
@@ -53,7 +59,7 @@ public class Shooting : MonoBehaviour
         nextFireTime = Time.time + 1f / fireRate;
 
         // Létrehozzuk a lövedéket és beállítjuk annak sebességét a mozgási irány alapján
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.velocity = lastMoveDirection.normalized * bulletSpeed;
 
@@ -69,6 +75,12 @@ public class Shooting : MonoBehaviour
         // Frissítjük az utolsó ismert mozgási irányt
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
+
+        if (FirstShoot)
+        {
+            lastMoveDirection = new Vector2(1f, 0f);
+            FirstShoot = false;
+        }
 
         // Ellenõrizzük, hogy a játékos mozog-e
         if (horizontalInput != 0f || verticalInput != 0f)
