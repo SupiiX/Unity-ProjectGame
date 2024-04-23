@@ -49,8 +49,22 @@ public class BulletDamage : MonoBehaviour
         {
 
             hasCollided = true; // Állítsuk be, hogy a lövedék ütközött
+
         }
-        
+        else if (other.gameObject.CompareTag("Obstacle"))
+        {
+            CeilObstacle obstacle = other.GetComponent<CeilObstacle>();
+
+            if (obstacle != null)
+            {
+                // Átadjuk az akadálynak a sebzést
+                obstacle.TakeDamage(damage);
+
+                // Megsemmisítjük a lövedéket
+            }
+
+            hasCollided = true;
+        }
 
     }
 
