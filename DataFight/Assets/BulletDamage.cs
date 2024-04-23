@@ -6,31 +6,63 @@ public class BulletDamage : MonoBehaviour
 {
     public int damage = 10;  // Lövedék sebzése
     public float lifeTime = 2f;  // Lövedék élettartama másodpercekben
+    public float bulletdeadlifetime = 0.4f;
+
+    private Animator animator;
+
+    private bool hasCollided = false; // Változó, amely jelzi, hogy a lövedék ütközött-e már
+
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
+        
         // Automatikusan töröljük a lövedéket az élettartam lejárta után
         Destroy(gameObject, lifeTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void Update()
     {
-        // Ellenõrizzük, hogy a lövedék ütközött-e valamivel, és ha igen, töröljük azt
 
-        //Destroy(gameObject);
+        if (hasCollided)
+        {
+            // Állítsuk meg a lövedék mozgását, ha ütközött
+            Rigidbody2D bulletRb = GetComponent<Rigidbody2D>();
+            bulletRb.velocity = Vector2.zero;
 
+            animator.SetBool("BulletDead", true); // Animáció lejátszása
 
-        // Ellenõrizzük, hogy az ütközött másik GameObject rendelkezik-e életerõ-csökkentõ komponenssel (EnemyHealth)
+            //float animationLength = animator.GetCurrentAnimatorStateInfo(0).length;
 
-        //EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
+            Invoke("DestroyObject", bulletdeadlifetime);
 
-        //if (enemyHealth != null)
-        //{
-        //    // Átadjuk a sebzést az életerõ-csökkentõ függvénynek
-        //    enemyHealth.TakeDamage(damage);
-
-        //    Destroy(gameObject);
-        //}
+            hasCollided= false;
+        }
     }
 
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+
+            hasCollided = true; // Állítsuk be, hogy a lövedék ütközött
+
+        }
+
+    }
+
+
+    void DestroyObject()
+    {
+        // Elpusztítjuk az objektumot
+        Destroy(gameObject);
+    }
+
+
+
 }
+
+

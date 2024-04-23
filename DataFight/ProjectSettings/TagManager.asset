@@ -8,6 +8,7 @@ TagManager:
   - Jumpable
   - Ground
   - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2970979457
+    locked: 0
+  - name: BulletSpawn
+    uniqueID: 152409775
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
