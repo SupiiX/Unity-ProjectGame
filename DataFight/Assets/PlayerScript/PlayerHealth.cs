@@ -33,6 +33,16 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            DecreaseHealth(1);
+           
+        }
+    }
+
+
 
     public void DecreaseHealth(int amount)
     {

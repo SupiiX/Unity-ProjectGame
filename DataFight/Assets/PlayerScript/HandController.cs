@@ -7,29 +7,20 @@ public class HandController : MonoBehaviour
     public GameObject object1;
     public GameObject object2;
     public GameObject object3;
-
-   
-    private Animator animator1;
-    private Animator animator2;
-    private Animator animator3;
-
+    
     private SpriteRenderer spriteRenderer1;
     private SpriteRenderer spriteRenderer2;
     private SpriteRenderer spriteRenderer3;
 
-    private bool isFacingRight = true;
+    //private bool isFacingRight = true;
 
     void Start()
     {
-        animator1 = object1.GetComponent<Animator>();
-        animator2 = object2.GetComponent<Animator>();
-        animator3 = object3.GetComponent<Animator>();
-
+     
         spriteRenderer1 = object1.GetComponent<SpriteRenderer>();
         spriteRenderer2 = object2.GetComponent<SpriteRenderer>();
         spriteRenderer3 = object3.GetComponent<SpriteRenderer>();
-
-     
+             
     }
 
     void Update()
@@ -47,25 +38,25 @@ public class HandController : MonoBehaviour
         if (horizontal == 0 && vertical == 0)
         {
             SetActiveObject(object1);
-            animator1.SetBool("PlayAnimation", true);
+            //animator1.SetBool("PlayAnimation", true);
         }
         // Ha a joystick jobbra van mozgatva
         else if (horizontal > 0 && vertical < 0.2 || horizontal < 0 && vertical < 0.2)
         {
             SetActiveObject(object1);
-            animator1.SetBool("PlayAnimation", true);
+            //animator1.SetBool("PlayAnimation", true);
         }
         // Ha a joystick átlósan felfelé van mozgatva
         else if (horizontal > 0.6 && vertical > 0.6 || horizontal < -0.6 && vertical > 0.6)
         {
             SetActiveObject(object2);
-            animator2.SetBool("PlayAnimation", true);
+           // animator2.SetBool("PlayAnimation", true);
         }
         // Ha a joystick felfelé van mozgatva
         else if (vertical == 1 && horizontal < 0.4)
         {
             SetActiveObject(object3);
-            animator3.SetBool("PlayAnimation", true);
+           // animator3.SetBool("PlayAnimation", true);
         }
     }
 
@@ -77,22 +68,19 @@ public class HandController : MonoBehaviour
         object3.SetActive(false);
       
         activeObject.SetActive(true);
-
-        animator1.SetBool("PlayAnimation", false);
-        animator2.SetBool("PlayAnimation", false);
-        animator3.SetBool("PlayAnimation", false);
+              
     }
 
 
-    void Flip(float horizontalInput)
-    {
-        // Karakter forgatása az irány függvényében
-        if (horizontalInput > 0 && !isFacingRight || horizontalInput < 0 && isFacingRight)
-        {
-            isFacingRight = !isFacingRight;
-            transform.Rotate(0f, 180f, 0f);
-        }
-    }
+    //void Flip(float horizontalInput)
+    //{
+    //    // Karakter forgatása az irány függvényében
+    //    if (horizontalInput > 0 && !isFacingRight || horizontalInput < 0 && isFacingRight)
+    //    {
+    //        isFacingRight = !isFacingRight;
+    //        transform.Rotate(0f, 180f, 0f);
+    //    }
+    //}
 
 
 }

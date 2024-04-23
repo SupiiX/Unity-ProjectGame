@@ -9,15 +9,18 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
 
+   
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
     private Rigidbody2D rb;
     private float horizontalInput;
 
+
     private bool FaceChanged;
 
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -50,6 +53,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        
         // Ugr�s ellen�rz�se csak akkor, ha a karakter talajon van
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
@@ -57,6 +61,28 @@ public class PlayerMove : MonoBehaviour
             isGrounded = false; // 
         }
     }
+
+
+    //void Jump()
+    //{
+
+    //    if (PlayerPosition.position.y == playerXJump)
+    //    {
+    //        isGrounded = true;
+
+    //        Debug.Log($"{PlayerPosition.position.y}");
+    //    }
+    //    else
+    //    {
+    //        isGrounded = false;
+
+    //        Debug.Log($"nem ugorhatsz {PlayerPosition.position.y}");
+
+    //    }
+
+    //}
+
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {

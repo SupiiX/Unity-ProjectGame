@@ -49,8 +49,8 @@ public class BulletDamage : MonoBehaviour
         {
 
             hasCollided = true; // Állítsuk be, hogy a lövedék ütközött
-
         }
+        
 
     }
 
