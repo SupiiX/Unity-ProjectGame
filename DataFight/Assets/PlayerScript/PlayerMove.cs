@@ -15,18 +15,21 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private float horizontalInput;
 
+    private bool isDodging;
 
     private bool FaceChanged;
 
     void Start()
     {
-        
+        isDodging = GetComponent<Dodge>().ISdodging;
+
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
     {
+        if (!isDodging) { 
         horizontalInput = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         rb.position += movement * Time.fixedDeltaTime;
@@ -47,7 +50,7 @@ public class PlayerMove : MonoBehaviour
         {
             spriteRenderer.flipX = true; // Tükrözve marad
         }
-
+        }
 
     }
 
