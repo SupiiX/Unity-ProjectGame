@@ -879,14 +879,14 @@ RectTransform:
   m_GameObject: {fileID: 578467487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3715737, y: 1.3715737, z: 1.3715737}
+  m_LocalScale: {x: 1.2858152, y: 1.2858152, z: 1.2858152}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1104033819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -794.1, y: 419.29993}
+  m_AnchoredPosition: {x: -794.1, y: 416.4}
   m_SizeDelta: {x: 118.1191, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &578467489
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 534232bd1ff443f4b813d36a3c392d68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2908ab0e8fbc7004b92f4360fdc1a787, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1802,11 +1802,11 @@ MonoBehaviour:
   HealthText: {fileID: 229994149}
   Heart: {fileID: 578467489}
   FaceImage:
-  - {fileID: 21300000, guid: ad47ea2a8e2b73a4995c717fbbca6c4b, type: 3}
-  - {fileID: 21300000, guid: 1ae2450e964f05647a6c0ea8ac152207, type: 3}
-  - {fileID: 21300000, guid: dbd104477ee2f784bacf4f7c388abc93, type: 3}
-  - {fileID: 21300000, guid: 37dd4ed6ecf57df43b074324a5d85ec4, type: 3}
-  - {fileID: 21300000, guid: 534232bd1ff443f4b813d36a3c392d68, type: 3}
+  - {fileID: 21300000, guid: db29200593961cd48a55da9c393b87c8, type: 3}
+  - {fileID: 21300000, guid: 76d85cffa62061e45880b447adc3d9d8, type: 3}
+  - {fileID: 21300000, guid: 76cbaec7ed273af42b108e7095a2d381, type: 3}
+  - {fileID: 21300000, guid: 577ed08c8d439a44caa15665edd350ed, type: 3}
+  - {fileID: 21300000, guid: 2908ab0e8fbc7004b92f4360fdc1a787, type: 3}
 --- !u!61 &898031477
 BoxCollider2D:
   m_ObjectHideFlags: 0
