@@ -1784,7 +1784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpForce: 5
+  jumpForce: 4
 --- !u!114 &898031476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1897,8 +1897,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2a98229b396504d8364e8c34385a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodgeSpeed: 30
-  dodgeDistance: 8
+  dodgeSpeed: 15
+  DodgeTime: 0.08
+  ISdodging: 0
+  dodgeCooldown: 0
 --- !u!1 &989236877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,11 +2377,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1887435478000862877, guid: af1dc7a699400cd42bc0e0f1449212e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.36
+      value: -1.62
       objectReference: {fileID: 0}
     - target: {fileID: 1887435478000862877, guid: af1dc7a699400cd42bc0e0f1449212e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.11
+      value: 3.38
       objectReference: {fileID: 0}
     - target: {fileID: 1887435478000862879, guid: af1dc7a699400cd42bc0e0f1449212e4, type: 3}
       propertyPath: m_FlipX
@@ -2510,7 +2512,7 @@ GameObject:
   - component: {fileID: 1276646251}
   m_Layer: 0
   m_Name: Wall_1
-  m_TagString: Wall
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2882,7 +2884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1645397020
 SpriteRenderer:
   m_ObjectHideFlags: 0
