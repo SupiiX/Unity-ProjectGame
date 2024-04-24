@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Bullet
   - Enemy
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: VFX
+    uniqueID: 3931745037
     locked: 0

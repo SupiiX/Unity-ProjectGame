@@ -18,7 +18,6 @@ public class Shooting : MonoBehaviour
     public GameObject BulletSpawnPoint2;
     public GameObject BulletSpawnPoint3;
 
-
     private Animator BulletSpawnPointAnimator1;
     private Animator BulletSpawnPointAnimator2;
     private Animator BulletSpawnPointAnimator3;
@@ -39,9 +38,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-
-    
-
+            
 
         if (Input.GetButton("Fire1"))
         {
