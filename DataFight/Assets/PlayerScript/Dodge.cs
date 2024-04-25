@@ -84,7 +84,7 @@ public class Dodge : MonoBehaviour
         // Cooldown csökkentése
         dodgeTimer -= Time.deltaTime;
 
-        Debug.Log($"{dodgeTimer}");
+       // Debug.Log($"{dodgeTimer}");
     }
 
     private IEnumerator StopDodgeAfterTime(float dodgeTime)

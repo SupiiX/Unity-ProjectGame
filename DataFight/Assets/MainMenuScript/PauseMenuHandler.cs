@@ -6,19 +6,19 @@ public class PauseMenuHandler : MonoBehaviour
 {
 public GameObject PauseMenu;
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
  private void Update() {
 
-  if (Input.GetKeyUp(KeyCode.Z)){
+  if (Input.GetKey(KeyCode.Escape)){
     
         PauseMenu.SetActive(true);
         Time.timeScale = 0;
 
-  }
-}
+
+            Debug.Log("itt a gond ");
+
+
+            //Input.GetButton("Fire2"
+        }
+    }
 }

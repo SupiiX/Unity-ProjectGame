@@ -2332,7 +2332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898031469}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.011, y: -2.589, z: 0}
   m_LocalScale: {x: 0.48842427, y: 0.48842427, z: 0.48842427}
   m_ConstrainProportionsScale: 0
@@ -2384,7 +2384,7 @@ MonoBehaviour:
   MaxHealth: 4
   CurrentHealth: 4
   HealthText: {fileID: 229994149}
-  Heart: {fileID: 578467489}
+  Heart: {fileID: 578467487}
   FaceImage:
   - {fileID: 21300000, guid: db29200593961cd48a55da9c393b87c8, type: 3}
   - {fileID: 21300000, guid: 76d85cffa62061e45880b447adc3d9d8, type: 3}
@@ -2423,7 +2423,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.49663037, y: 0}
+  m_Offset: {x: -0.022521496, y: 0.1871481}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2434,7 +2434,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.466739, y: 4.72}
+  m_Size: {x: 5.7393456, y: 5.0942955}
   m_EdgeRadius: 0
 --- !u!114 &898031478
 MonoBehaviour:
@@ -4526,7 +4526,7 @@ Transform:
   m_GameObject: {fileID: 1879333277}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.32, y: -0.84, z: 0}
+  m_LocalPosition: {x: 5.88, y: -2.29, z: 0}
   m_LocalScale: {x: 1.9180312, y: 2.6542308, z: 1.2475}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4733,8 +4733,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 989236882}
   - {fileID: 898031473}
+  - {fileID: 989236882}
   - {fileID: 1276646249}
   - {fileID: 894467410}
   - {fileID: 693467991}

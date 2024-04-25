@@ -19,7 +19,7 @@ public class CeilObstacle : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("demage");
+       // Debug.Log("demage");
 
         currentHealth -= damage; // Életerõ csökkentése a kapott sebzés értékével
 
@@ -37,10 +37,15 @@ public class CeilObstacle : MonoBehaviour
         {
 
             Destroy(gameObject);
+
+        }else if (other.CompareTag("Player"))
+        {
+
+            Destroy(gameObject);
         }
 
 
-       
+
     }
 
 
