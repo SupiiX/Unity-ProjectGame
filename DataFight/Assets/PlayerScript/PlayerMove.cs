@@ -63,6 +63,14 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false; // 
         }
+        
+if (Input.GetKeyDown(KeyCode.P)){
+
+ GetComponent<PauseMenu>().Pause();
+
+}
+
+       
     }
 
 
