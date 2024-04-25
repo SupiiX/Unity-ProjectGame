@@ -16,8 +16,13 @@ public class PlayerMove : MonoBehaviour
     private float horizontalInput;
 
     private bool isDodging;
-
     private bool FaceChanged;
+
+    public GameObject Dust;
+    private Animator animator;
+
+    private bool AfterJump = false;
+
 
     void Start()
     {
@@ -25,6 +30,9 @@ public class PlayerMove : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        animator = Dust.GetComponent<Animator>();
+
     }
 
     void FixedUpdate()
@@ -56,44 +64,35 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        
-        // Ugr�s ellen�rz�se csak akkor, ha a karakter talajon van
+            
+       // Ugr�s ellen�rz�se csak akkor, ha a karakter talajon van
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false; // 
+            AfterJump = true;
         }
-        
-if (Input.GetKeyDown(KeyCode.P)){
 
- GetComponent<PauseMenu>().Pause();
+        if (isGrounded && AfterJump)
+        {
+            animator.SetBool("JumpDust",true);
+            StartCoroutine(ResetJumpDustTrigger());
+            AfterJump = false;
+        }
 
-}
 
-       
+        if (Input.GetKeyDown(KeyCode.P)){
+
+         GetComponent<PauseMenu>().Pause();
+
+        }      
     }
 
-
-    //void Jump()
-    //{
-
-    //    if (PlayerPosition.position.y == playerXJump)
-    //    {
-    //        isGrounded = true;
-
-    //        Debug.Log($"{PlayerPosition.position.y}");
-    //    }
-    //    else
-    //    {
-    //        isGrounded = false;
-
-    //        Debug.Log($"nem ugorhatsz {PlayerPosition.position.y}");
-
-    //    }
-
-    //}
-
-
+    IEnumerator ResetJumpDustTrigger()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("JumpDust", false);
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -101,6 +100,7 @@ if (Input.GetKeyDown(KeyCode.P)){
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Jumpable"))
         {
             isGrounded = true;
+        
         }
     }
 
@@ -110,6 +110,7 @@ if (Input.GetKeyDown(KeyCode.P)){
         if (!collision.gameObject.CompareTag("Ground") && !collision.gameObject.CompareTag("Jumpable"))
         {
             isGrounded = false;
+
         }
     }
 
