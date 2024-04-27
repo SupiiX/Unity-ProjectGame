@@ -18,6 +18,9 @@ public class Dodge : MonoBehaviour
     // A dodge cooldown ideje
     public float dodgeCooldown = 1.5f;
 
+    public GameObject Dust;
+    private Animator animator;
+
     private float dodgeTimer;
 
     private bool FirstTime = true;
@@ -26,6 +29,9 @@ public class Dodge : MonoBehaviour
 
     private void Start()
     {
+
+        animator = Dust.GetComponent<Animator>();
+
         dodgeTimer = dodgeCooldown;
 
         rb = GetComponent<Rigidbody2D>();
@@ -75,10 +81,14 @@ public class Dodge : MonoBehaviour
 
             ISdodging = true;
 
+            animator.SetBool("DashDust", true);
+
             StartCoroutine(StopDodgeAfterTime(DodgeTime));
 
+            StartCoroutine(ResetDashDustTrigger());
             // Cooldown beállítása
             dodgeTimer = dodgeCooldown;
+            
         }
 
         // Cooldown csökkentése
@@ -87,7 +97,14 @@ public class Dodge : MonoBehaviour
        // Debug.Log($"{dodgeTimer}");
     }
 
-    private IEnumerator StopDodgeAfterTime(float dodgeTime)
+    IEnumerator ResetDashDustTrigger()
+    {
+        yield return new WaitForSeconds(0.35f);
+        animator.SetBool("DashDust", false);
+    }
+
+
+     IEnumerator StopDodgeAfterTime(float dodgeTime)
     {
         yield return new WaitForSeconds(dodgeTime);
         rb.velocity = Vector2.zero;

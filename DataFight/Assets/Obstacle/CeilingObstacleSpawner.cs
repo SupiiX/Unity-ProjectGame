@@ -8,7 +8,8 @@ public class CeilingObstacleSpawner : MonoBehaviour
     public Transform startPoint; // Kezdõpont, ahol az akadályok megjelennek
     public Transform endPoint; // Végpont, ahol az akadályok véget érnek
     public float minSpawnInterval = 1f; // Minimum idõköz az akadályok között
-    public float maxSpawnInterval = 3f; // Maximum idõköz az akadályok között
+    public float maxSpawnInterval = 7f; // Maximum idõköz az akadályok között
+    public GameObject player;
 
     private float nextSpawnTime; // Az idõ, amikor a következõ akadályt létre kell hozni
 
@@ -23,9 +24,18 @@ public class CeilingObstacleSpawner : MonoBehaviour
         // Ellenõrizzük, hogy elérkezett-e az idõ a következõ akadály létrehozására
         if (Time.time >= nextSpawnTime)
         {
-            // Létrehozzuk az akadályt a kezdõpont és végpont között
-            Vector3 spawnPosition = new Vector3(Random.Range(startPoint.position.x, endPoint.position.x), startPoint.position.y, 0f);
-            Instantiate(Obstacle, spawnPosition, Quaternion.identity);
+            
+            //veletlen
+            //Vector3 spawnPosition = new Vector3(Random.Range(startPoint.position.x, endPoint.position.x), startPoint.position.y, 0f);
+                       
+
+            // szandekos
+            Vector3 spawnPosition = new Vector3(player.transform.position.x, startPoint.position.y, 0f);
+            
+            
+            GameObject newObstacle = Instantiate(Obstacle, spawnPosition, Quaternion.identity);
+
+            Debug.DrawLine(player.transform.position, newObstacle.transform.position, Color.red, 3f);
 
             // Frissítjük a következõ akadály létrehozásának idõpontját
             nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
