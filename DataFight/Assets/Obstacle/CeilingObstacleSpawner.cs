@@ -11,10 +11,14 @@ public class CeilingObstacleSpawner : MonoBehaviour
     public float maxSpawnInterval = 7f; // Maximum idõköz az akadályok között
     public GameObject player;
 
+   // private Transform PlayerPosition;
+
     private float nextSpawnTime; // Az idõ, amikor a következõ akadályt létre kell hozni
 
     void Start()
     {
+       // PlayerPosition = player.GetComponent<Transform>();
+
         // Beállítjuk az elsõ akadály létrehozásának idõpontját
         nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
     }

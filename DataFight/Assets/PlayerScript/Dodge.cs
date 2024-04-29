@@ -18,8 +18,11 @@ public class Dodge : MonoBehaviour
     // A dodge cooldown ideje
     public float dodgeCooldown = 1.5f;
 
-    public GameObject Dust;
-    private Animator animator;
+    public GameObject DustLeft;
+    private Animator animatorLeft;
+
+    public GameObject DustRight;
+    private Animator animatorRight;
 
     private float dodgeTimer;
 
@@ -30,7 +33,9 @@ public class Dodge : MonoBehaviour
     private void Start()
     {
 
-        animator = Dust.GetComponent<Animator>();
+        animatorLeft = DustLeft.GetComponent<Animator>();
+
+        animatorRight = DustRight.GetComponent<Animator>();
 
         dodgeTimer = dodgeCooldown;
 
@@ -81,11 +86,26 @@ public class Dodge : MonoBehaviour
 
             ISdodging = true;
 
-            animator.SetBool("DashDust", true);
+            if (dodgeDirection == Vector2.left)
+            {
+
+                animatorRight.SetBool("DashDust", true);
+
+                StartCoroutine(ResetDashDustTrigger(animatorRight));
+
+               // Debug.Log("xx--");
+
+            }
+            else
+            {
+                animatorLeft.SetBool("DashDust", true);            
+
+                StartCoroutine(ResetDashDustTrigger(animatorLeft));
+
+            }
 
             StartCoroutine(StopDodgeAfterTime(DodgeTime));
 
-            StartCoroutine(ResetDashDustTrigger());
             // Cooldown beállítása
             dodgeTimer = dodgeCooldown;
             
@@ -97,18 +117,23 @@ public class Dodge : MonoBehaviour
        // Debug.Log($"{dodgeTimer}");
     }
 
-    IEnumerator ResetDashDustTrigger()
+    IEnumerator ResetDashDustTrigger(Animator Animation)
     {
         yield return new WaitForSeconds(0.35f);
-        animator.SetBool("DashDust", false);
+        Animation.SetBool("DashDust", false);
     }
-
-
+               
      IEnumerator StopDodgeAfterTime(float dodgeTime)
     {
         yield return new WaitForSeconds(dodgeTime);
         rb.velocity = Vector2.zero;
         ISdodging = false;
     }
+    ////////////////
+
+
+
+
+
 }
 

@@ -62,7 +62,7 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    private void Update()
+    void Update()
     {
             
        // Ugr�s ellen�rz�se csak akkor, ha a karakter talajon van
