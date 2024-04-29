@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HandController : MonoBehaviour
@@ -18,7 +19,11 @@ public class HandController : MonoBehaviour
     private SpriteRenderer spriteRenderer5;
     private SpriteRenderer spriteRenderer6;
 
-     //private bool isFacingRight = true;
+    //private bool isFacingRight = true;
+
+    private Vector2 lastMoveDirection;
+
+    private bool FirstTime;
 
     void Start()
     {
@@ -38,6 +43,19 @@ public class HandController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        if (horizontal != 0f || vertical != 0f)
+        {
+            // lastMoveDirection = new Vector2(horizontalInput, verticalInput);
+            lastMoveDirection = horizontal < 0 ? Vector2.left : Vector2.right;
+        }
+        else if (FirstTime)
+        {
+
+            lastMoveDirection = Vector2.right;
+            FirstTime = false;
+        }
+
+
         //spriteRenderer1.flipX = horizontal < 0 ? true : false;
         //spriteRenderer2.flipX = horizontal < 0 ? true : false;
         //spriteRenderer3.flipX = horizontal < 0 ? true : false;
@@ -49,13 +67,22 @@ public class HandController : MonoBehaviour
         // Alapértelmezett eset, ha a joystick nem mozog
         if (horizontal == 0 && vertical == 0)
         {
-            SetActiveObject(Hand1);
+            if (lastMoveDirection == Vector2.left)
+            {
+                SetActiveObject(LeftHand1);
+            }
+            else
+            {
+                SetActiveObject(Hand1);
+            }
+
+         
             //animator1.SetBool("PlayAnimation", true);
         }
         // Ha a joystick jobbra van mozgatva
-        else if (horizontal > 0 && vertical < 0.2)
+        else if (horizontal > 0 && vertical < 0.2|| horizontal < 0 && vertical < 0.2)
         {
-            if (horizontal < 0 && vertical < 0.2)
+            if (lastMoveDirection == Vector2.left)
             {
                 SetActiveObject(LeftHand1);
             }
@@ -67,9 +94,9 @@ public class HandController : MonoBehaviour
             //animator1.SetBool("PlayAnimation", true);
         }
         // Ha a joystick átlósan felfelé van mozgatva
-        else if (horizontal > 0.6 && vertical > 0.6)
+        else if (horizontal > 0.6 && vertical > 0.6 || horizontal < -0.6 && vertical > 0.6)
         {
-            if (horizontal < -0.6 && vertical > 0.6)
+            if (lastMoveDirection == Vector2.left)
             {
                 SetActiveObject(LeftHand2);
 
@@ -85,12 +112,15 @@ public class HandController : MonoBehaviour
         // Ha a joystick felfelé van mozgatva
         else if (vertical == 1 && horizontal < 0.4)
         {
-            if (vertical == 1 && horizontal < 0.4 )
+            if (lastMoveDirection == Vector2.left)
             {
-
+                SetActiveObject(LeftHand3);
             }
-
-            SetActiveObject(Hand3);
+            else
+            {
+                SetActiveObject(Hand3);
+            }
+                       
            // animator3.SetBool("PlayAnimation", true);
         }
     }

@@ -2843,6 +2843,9 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 1119996026}
   BulletSpawnPoint2: {fileID: 857613607}
   BulletSpawnPoint3: {fileID: 1368002973}
+  BulletSpawnPointLeft: {fileID: 1928799112}
+  BulletSpawnPoint2Left: {fileID: 507677456}
+  BulletSpawnPoint3Left: {fileID: 1404764290}
 --- !u!114 &898031479
 MonoBehaviour:
   m_ObjectHideFlags: 0

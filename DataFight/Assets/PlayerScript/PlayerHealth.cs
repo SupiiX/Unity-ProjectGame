@@ -63,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
         {
             CurrentHealth = 0;
 
-            Debug.Log("meghaltal");
+            //Debug.Log("meghaltal");
             
         }
 

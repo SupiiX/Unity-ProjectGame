@@ -22,6 +22,16 @@ public class Shooting : MonoBehaviour
     private Animator BulletSpawnPointAnimator2;
     private Animator BulletSpawnPointAnimator3;
 
+    //-----------------------------------------------
+
+    public GameObject BulletSpawnPointLeft;
+    public GameObject BulletSpawnPoint2Left;
+    public GameObject BulletSpawnPoint3Left;
+
+    private Animator BulletSpawnPointAnimator1Left;
+    private Animator BulletSpawnPointAnimator2Left;
+    private Animator BulletSpawnPointAnimator3Left;
+
     private bool FirstShoot = true;
 
     private Vector2 lastMoveDirection;  // Utolsó ismert mozgási irány
@@ -33,6 +43,10 @@ public class Shooting : MonoBehaviour
         BulletSpawnPointAnimator1 = BulletSpawnPoint.GetComponent<Animator>();
         BulletSpawnPointAnimator2 = BulletSpawnPoint2.GetComponent<Animator>();
         BulletSpawnPointAnimator3 = BulletSpawnPoint3.GetComponent<Animator>();
+
+        BulletSpawnPointAnimator1Left = BulletSpawnPointLeft.GetComponent<Animator>();
+        BulletSpawnPointAnimator2Left = BulletSpawnPoint2Left.GetComponent<Animator>();
+        BulletSpawnPointAnimator3Left = BulletSpawnPoint3Left.GetComponent<Animator>();
 
     }
 
@@ -61,6 +75,11 @@ public class Shooting : MonoBehaviour
             BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
             BulletSpawnPointAnimator2.SetBool("BulletSpawn", false);
             BulletSpawnPointAnimator3.SetBool("BulletSpawn", false);
+
+            BulletSpawnPointAnimator1Left.SetBool("BulletSpawn", false);
+            BulletSpawnPointAnimator2Left.SetBool("BulletSpawn", false);
+            BulletSpawnPointAnimator3Left.SetBool("BulletSpawn", false);
+
         }
 
        
@@ -80,39 +99,79 @@ public class Shooting : MonoBehaviour
 
         if (horizontal == 0 && vertical == 0)
         {
-             bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
-
-            //BulletSpawnPointAnimator1.SetBool("BulletSpawn", AnimateLoop);
-
-            SetActiveObject(BulletSpawnPointAnimator1);
            
-           // BulletSpawnPointAnimator1.SetTrigger("BulletSpawnTrigger");
+            if (lastMoveDirection == Vector2.left)
+            {
+                bullet = Instantiate(bulletPrefab, BulletSpawnPointLeft.transform.position, Quaternion.identity);
+
+                SetActiveObject(BulletSpawnPointAnimator1Left);
+            }
+            else
+            {
+                bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
+
+                SetActiveObject(BulletSpawnPointAnimator1);
+            }
+           
+            //BulletSpawnPointAnimator1.SetBool("BulletSpawn", AnimateLoop);
+            // BulletSpawnPointAnimator1.SetTrigger("BulletSpawnTrigger");
 
         }
         // joystick jobbra van mozgatva
         else if (horizontal > 0 && vertical < 0.2 || horizontal < 0 && vertical < 0.2)
         {
-             bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
+            if (lastMoveDirection == Vector2.left)
+            {
+                bullet = Instantiate(bulletPrefab, BulletSpawnPointLeft.transform.position, Quaternion.identity);
 
-            //BulletSpawnPointAnimator1.SetBool("BulletSpawn", AnimateLoop);
-            SetActiveObject(BulletSpawnPointAnimator1);
+                SetActiveObject(BulletSpawnPointAnimator1Left);
+            }
+            else
+            {
+                bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
+
+                SetActiveObject(BulletSpawnPointAnimator1);
+            }
         }
         //  joystick átlósan felfelé van mozgatva
         else if (horizontal > 0.6 && vertical > 0.6 || horizontal < -0.6 && vertical > 0.6)
         {
-             bullet = Instantiate(bulletPrefab, BulletSpawnPoint2.transform.position, Quaternion.identity);
+            if (lastMoveDirection == Vector2.left)
+            {
+                bullet = Instantiate(bulletPrefab, BulletSpawnPoint2Left.transform.position, Quaternion.identity);
 
-            //BulletSpawnPointAnimator2.SetBool("BulletSpawn", AnimateLoop);
-            SetActiveObject(BulletSpawnPointAnimator2);
+                SetActiveObject(BulletSpawnPointAnimator2Left);
+            }
+            else
+            {
+                bullet = Instantiate(bulletPrefab, BulletSpawnPoint2.transform.position, Quaternion.identity);
+
+                SetActiveObject(BulletSpawnPointAnimator2);
+            }
+
+            //bullet = Instantiate(bulletPrefab, BulletSpawnPoint2.transform.position, Quaternion.identity);
+            //SetActiveObject(BulletSpawnPointAnimator2);
+
         }
         // joystick felfelé van mozgatva
         else if (vertical == 1 && horizontal < 0.4)
         {
-        
-            bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
 
-            //BulletSpawnPointAnimator3.SetBool("BulletSpawn", AnimateLoop);
-            SetActiveObject(BulletSpawnPointAnimator3);
+            if (lastMoveDirection == Vector2.left)
+            {
+                bullet = Instantiate(bulletPrefab, BulletSpawnPoint3Left.transform.position, Quaternion.identity);
+
+                SetActiveObject(BulletSpawnPointAnimator3Left);
+            }
+            else
+            {
+                bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
+                SetActiveObject(BulletSpawnPointAnimator3);
+            }
+
+
+           // bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
+           // SetActiveObject(BulletSpawnPointAnimator3);
 
         }
 
@@ -160,10 +219,13 @@ public class Shooting : MonoBehaviour
         BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
         BulletSpawnPointAnimator2.SetBool("BulletSpawn", false);
         BulletSpawnPointAnimator3.SetBool("BulletSpawn", false);
+        BulletSpawnPointAnimator1Left.SetBool("BulletSpawn", false);
+        BulletSpawnPointAnimator2Left.SetBool("BulletSpawn", false);
+        BulletSpawnPointAnimator3Left.SetBool("BulletSpawn", false);
 
         activeObject.SetBool("BulletSpawn", true);
 
-
+        Debug.Log($"{activeObject.name} -");
     }
 
 
@@ -175,7 +237,9 @@ public class Shooting : MonoBehaviour
 
         if (FirstShoot)
         {
-            lastMoveDirection = new Vector2(1f, 0f);
+         //   Vector2 vector2 = new Vector2(1f, 0f);
+            
+            lastMoveDirection = Vector2.right;
             FirstShoot = false;
         }
 
