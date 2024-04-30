@@ -18,10 +18,20 @@ public class PlayerMove : MonoBehaviour
     private bool isDodging;
     private bool FaceChanged;
 
-    public GameObject Dust;
-    private Animator animator;
+    public GameObject DustRight;
+    private Animator animatorRight;
+
+    public GameObject DustLeft;
+    private Animator animatorLeft;
+
+
 
     private bool AfterJump = false;
+
+
+    private Vector2 lastMoveDirection;
+
+    private bool FirstTime;
 
 
     void Start()
@@ -31,7 +41,9 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        animator = Dust.GetComponent<Animator>();
+        animatorRight = DustRight.GetComponent<Animator>();
+
+        animatorLeft = DustLeft.GetComponent<Animator>();
 
     }
 
@@ -64,8 +76,21 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-            
-       // Ugr�s ellen�rz�se csak akkor, ha a karakter talajon van
+
+        if (horizontalInput != 0f )
+        {
+            // lastMoveDirection = new Vector2(horizontalInput, verticalInput);
+            lastMoveDirection = horizontalInput < 0 ? Vector2.left : Vector2.right;
+        }
+        else if (FirstTime)
+        {
+
+            lastMoveDirection = Vector2.right;
+            FirstTime = false;
+        }
+
+
+        // Ugr�s ellen�rz�se csak akkor, ha a karakter talajon van
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -75,24 +100,56 @@ public class PlayerMove : MonoBehaviour
 
         if (isGrounded && AfterJump)
         {
-            animator.SetBool("JumpDust",true);
-            StartCoroutine(ResetJumpDustTrigger());
+
+
+            if (lastMoveDirection == Vector2.left)
+            {
+
+                animatorLeft.SetBool("JumpDust", true);
+                StartCoroutine(ResetJumpDustTrigger(animatorLeft));
+                
+                // Debug.Log("xx--");
+
+            }
+            else
+            {
+                animatorRight.SetBool("JumpDust", true);
+                StartCoroutine(ResetJumpDustTrigger(animatorRight));
+               
+
+            }
             AfterJump = false;
         }
 
 
-        if (Input.GetKeyDown(KeyCode.P)){
+        //if (Input.GetKeyDown(KeyCode.P)){
 
-         GetComponent<PauseMenu>().Pause();
+        // GetComponent<PauseMenu>().Pause();
 
-        }      
+        //}      
     }
 
-    IEnumerator ResetJumpDustTrigger()
+    IEnumerator ResetJumpDustTrigger(Animator Animation)
     {
         yield return new WaitForSeconds(0.5f);
-        animator.SetBool("JumpDust", false);
+        Animation.SetBool("JumpDust", false);
     }
+
+    //IEnumerator ResetJumpDustTrigger()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    animatorRight.SetBool("JumpDust", false);
+    //}
+
+    //IEnumerator ResetDashDustTrigger(Animator Animation)
+    //{
+    //    yield return new WaitForSeconds(0.35f);
+    //    Animation.SetBool("DashDust", false);
+    //}
+
+
+
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
