@@ -1363,9 +1363,8 @@ GameObject:
   m_Component:
   - component: {fileID: 507677457}
   - component: {fileID: 507677459}
-  - component: {fileID: 507677458}
   m_Layer: 0
-  m_Name: Bulletspawn
+  m_Name: Bulletspawn2Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1386,27 +1385,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2042856227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &507677458
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507677456}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2c7387c264cfa2d4582b379742edc676, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &507677459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2380,9 +2358,8 @@ GameObject:
   m_Component:
   - component: {fileID: 857613608}
   - component: {fileID: 857613609}
-  - component: {fileID: 857613610}
   m_Layer: 0
-  m_Name: Bulletspawn
+  m_Name: Bulletspawn2Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2455,27 +2432,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &857613610
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857613607}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c153d2fe24013a246a8dbf1c12deaab7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &873807669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,7 +2745,7 @@ Transform:
   m_GameObject: {fileID: 898031469}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.011, y: -2.589, z: 0}
+  m_LocalPosition: {x: -2.552, y: -2.589, z: 0}
   m_LocalScale: {x: 0.48842427, y: 0.48842427, z: 0.48842427}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3843,9 +3799,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1119996028}
   - component: {fileID: 1119996027}
-  - component: {fileID: 1119996029}
   m_Layer: 0
-  m_Name: Bulletspawn
+  m_Name: Bulletspawn1Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3918,27 +3873,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 250399044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1119996029
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119996026}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 78cfda2dcb69dee40ac6d13c3af1f2d3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1216708141
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,9 +4331,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1368002974}
   - component: {fileID: 1368002975}
-  - component: {fileID: 1368002976}
   m_Layer: 0
-  m_Name: Bulletspawn
+  m_Name: Bulletspawn3Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4472,27 +4405,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1368002976
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368002973}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d40f38a129544bf4c8e8a6fb4b03a195, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1404764290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,9 +4415,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1404764291}
   - component: {fileID: 1404764293}
-  - component: {fileID: 1404764292}
   m_Layer: 0
-  m_Name: Bulletspawn
+  m_Name: Bulletspawn3Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4526,27 +4437,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 112722724}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1404764292
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404764290}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d23e72e3eb9648843bb5c6018f042ce7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1404764293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6074,9 +5964,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1928799113}
   - component: {fileID: 1928799115}
-  - component: {fileID: 1928799114}
   m_Layer: 0
-  m_Name: Bulletspawn
+  m_Name: Bulletspawn1Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6097,27 +5986,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 881887215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1928799114
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928799112}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3979200a711ccb240b181a540bd952d9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1928799115
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6252,7 +6120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1990783542}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025955413}
+        m_TargetAssemblyTypeName: GameManage, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1990783542
 MonoBehaviour:
   m_ObjectHideFlags: 0
