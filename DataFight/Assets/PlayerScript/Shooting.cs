@@ -17,42 +17,46 @@ public class Shooting : MonoBehaviour
     public GameObject BulletSpawnPoint;
     public GameObject BulletSpawnPoint2;
     public GameObject BulletSpawnPoint3;
-
-    private Animator BulletSpawnPointAnimator1;
-    private Animator BulletSpawnPointAnimator2;
-    private Animator BulletSpawnPointAnimator3;
-
-    //-----------------------------------------------
-
     public GameObject BulletSpawnPointLeft;
     public GameObject BulletSpawnPoint2Left;
     public GameObject BulletSpawnPoint3Left;
 
-    private Animator BulletSpawnPointAnimator1Left;
-    private Animator BulletSpawnPointAnimator2Left;
-    private Animator BulletSpawnPointAnimator3Left;
+
+    //-----------------------------------------------
+
+
 
     private bool FirstShoot = true;
 
     private Vector2 lastMoveDirection;  // Utolsó ismert mozgási irány
-       
+
+    private Vector2 BulletGO;
     // Start is called before the first frame update
     void Start()
     {
        
-        BulletSpawnPointAnimator1 = BulletSpawnPoint.GetComponent<Animator>();
-        BulletSpawnPointAnimator2 = BulletSpawnPoint2.GetComponent<Animator>();
-        BulletSpawnPointAnimator3 = BulletSpawnPoint3.GetComponent<Animator>();
-
-        BulletSpawnPointAnimator1Left = BulletSpawnPointLeft.GetComponent<Animator>();
-        BulletSpawnPointAnimator2Left = BulletSpawnPoint2Left.GetComponent<Animator>();
-        BulletSpawnPointAnimator3Left = BulletSpawnPoint3Left.GetComponent<Animator>();
-
     }
 
     void Update()
     {
-            
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        if (horizontal != 0f || vertical != 0f)
+        {
+            // lastMoveDirection = new Vector2(horizontalInput, verticalInput);
+            lastMoveDirection = horizontal < 0 ? Vector2.left : Vector2.right;
+        }
+        else if (FirstShoot)
+        {
+
+            lastMoveDirection = Vector2.right;
+            FirstShoot = false;
+        }
+        else
+        {
+            ///
+        }
 
         if (Input.GetButton("Fire1"))
         {
@@ -61,7 +65,7 @@ public class Shooting : MonoBehaviour
 
             
 
-            if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
+            if (Time.time >= nextFireTime)
             {
                  
                 // getbuttton
@@ -72,18 +76,17 @@ public class Shooting : MonoBehaviour
         }
         else
         {
-            BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
-            BulletSpawnPointAnimator2.SetBool("BulletSpawn", false);
-            BulletSpawnPointAnimator3.SetBool("BulletSpawn", false);
-
-            BulletSpawnPointAnimator1Left.SetBool("BulletSpawn", false);
-            BulletSpawnPointAnimator2Left.SetBool("BulletSpawn", false);
-            BulletSpawnPointAnimator3Left.SetBool("BulletSpawn", false);
+            //BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
+            //BulletSpawnPointAnimator2.SetBool("BulletSpawn", false);
+            //BulletSpawnPointAnimator3.SetBool("BulletSpawn", false);
+            //BulletSpawnPointAnimator1Left.SetBool("BulletSpawn", false);
+            //BulletSpawnPointAnimator2Left.SetBool("BulletSpawn", false);
+            //BulletSpawnPointAnimator3Left.SetBool("BulletSpawn", false);
 
         }
 
-       
-        UpdateLastMoveDirection();
+
+        //UpdateLastMoveDirection();
     }
 
     void Shoot()
@@ -104,15 +107,22 @@ public class Shooting : MonoBehaviour
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPointLeft.transform.position, Quaternion.identity);
 
-                SetActiveObject(BulletSpawnPointAnimator1Left);
+                //SetActiveObject(BulletSpawnPointAnimator1Left);
+
+                //BulletSpawnPointAnimator1Left.SetBool("BulletSpawn", true);
+
             }
             else
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
 
-                SetActiveObject(BulletSpawnPointAnimator1);
+                //SetActiveObject(BulletSpawnPointAnimator1);
+
+                //BulletSpawnPointAnimator1.SetBool("BulletSpawn", true);
             }
-           
+
+            BulletGO = lastMoveDirection;
+
             //BulletSpawnPointAnimator1.SetBool("BulletSpawn", AnimateLoop);
             // BulletSpawnPointAnimator1.SetTrigger("BulletSpawnTrigger");
 
@@ -124,14 +134,21 @@ public class Shooting : MonoBehaviour
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPointLeft.transform.position, Quaternion.identity);
 
-                SetActiveObject(BulletSpawnPointAnimator1Left);
+                //SetActiveObject(BulletSpawnPointAnimator1Left);
+
+               // BulletSpawnPointAnimator1Left.SetBool("BulletSpawn", true);
             }
             else
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
 
-                SetActiveObject(BulletSpawnPointAnimator1);
+              //  SetActiveObject(BulletSpawnPointAnimator1);
+
+              //  BulletSpawnPointAnimator1.SetBool("BulletSpawn", true);
             }
+
+            BulletGO = lastMoveDirection;
+
         }
         //  joystick átlósan felfelé van mozgatva
         else if (horizontal > 0.6 && vertical > 0.6 || horizontal < -0.6 && vertical > 0.6)
@@ -140,13 +157,21 @@ public class Shooting : MonoBehaviour
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint2Left.transform.position, Quaternion.identity);
 
-                SetActiveObject(BulletSpawnPointAnimator2Left);
+              //  SetActiveObject(BulletSpawnPointAnimator2Left);
+
+              //  BulletSpawnPointAnimator2Left.SetBool("BulletSpawn", true);
+
+                BulletGO =  new Vector2(-1, 1);
             }
             else
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint2.transform.position, Quaternion.identity);
 
-                SetActiveObject(BulletSpawnPointAnimator2);
+               // SetActiveObject(BulletSpawnPointAnimator2);
+
+              //  BulletSpawnPointAnimator2.SetBool("BulletSpawn", true);
+
+                BulletGO = new Vector2(1, 1);
             }
 
             //bullet = Instantiate(bulletPrefab, BulletSpawnPoint2.transform.position, Quaternion.identity);
@@ -161,12 +186,21 @@ public class Shooting : MonoBehaviour
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint3Left.transform.position, Quaternion.identity);
 
-                SetActiveObject(BulletSpawnPointAnimator3Left);
+               // SetActiveObject(BulletSpawnPointAnimator3Left);
+
+              //  BulletSpawnPointAnimator3Left.SetBool("BulletSpawn", true);
+
             }
             else
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
-                SetActiveObject(BulletSpawnPointAnimator3);
+
+              //  SetActiveObject(BulletSpawnPointAnimator3);
+
+              //  BulletSpawnPointAnimator3.SetBool("BulletSpawn", true);
+
+                BulletGO = new Vector2(0, 1);
+
             }
 
 
@@ -179,13 +213,23 @@ public class Shooting : MonoBehaviour
 
         
 
-        if (lastMoveDirection.x < 0)
+        if (BulletGO == Vector2.left)
         {
             spriteRenderer.flipX = true;
         }
-        else if (vertical == 1)
+        else if (BulletGO == new Vector2(0,1))
         {
-            bullet.transform.rotation = Quaternion.Euler(0, 0, 90);
+            //bullet.transform.rotation = Quaternion.Euler(0, 0, 90);
+
+            bullet.transform.Rotate(0, 0, 90);
+        }
+        else if (BulletGO == new Vector2(1,1))
+        {
+            bullet.transform.Rotate(0, 0, 45);
+        }
+        else if (BulletGO == new Vector2(-1, 1))
+        {
+            bullet.transform.Rotate(0, 0, 135);
         }
         else
         {
@@ -197,14 +241,17 @@ public class Shooting : MonoBehaviour
         //**
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
 
-        bulletRb.velocity = lastMoveDirection.normalized * bulletSpeed;
+        bulletRb.velocity = BulletGO.normalized * bulletSpeed;   //!!!!!!
 
         // Adjuk hozzá a lövedékhez egy "Bullet" címkét, hogy azonosíthassuk ellenségekkel való ütközésnél
         bullet.tag = "Bullet";
 
+       // BulletSpawnPointAnimator1.SetBool("BulletSpawn", true);
+
         //BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
         // Adjuk hozzá az életerõ-csökkentõ komponenst a lövedékhez
         //bullet.AddComponent<BulletDamage>();
+
     }
 
 
@@ -216,52 +263,52 @@ public class Shooting : MonoBehaviour
 
         //activeObject.SetActive(true);
 
-        BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
-        BulletSpawnPointAnimator2.SetBool("BulletSpawn", false);
-        BulletSpawnPointAnimator3.SetBool("BulletSpawn", false);
-        BulletSpawnPointAnimator1Left.SetBool("BulletSpawn", false);
-        BulletSpawnPointAnimator2Left.SetBool("BulletSpawn", false);
-        BulletSpawnPointAnimator3Left.SetBool("BulletSpawn", false);
+        //BulletSpawnPointAnimator1.SetBool("BulletSpawn", false);
+        //BulletSpawnPointAnimator2.SetBool("BulletSpawn", false);
+        //BulletSpawnPointAnimator3.SetBool("BulletSpawn", false);
+        //BulletSpawnPointAnimator1Left.SetBool("BulletSpawn", false);
+        //BulletSpawnPointAnimator2Left.SetBool("BulletSpawn", false);
+        //BulletSpawnPointAnimator3Left.SetBool("BulletSpawn", false);
 
-        activeObject.SetBool("BulletSpawn", true);
+        //activeObject.SetBool("BulletSpawn", true);
 
-        Debug.Log($"{activeObject.name} -");
+        //Debug.Log($"{activeObject.name} -");
     }
 
 
-    void UpdateLastMoveDirection()
-    {
+    //void UpdateLastMoveDirection()
+    //{
         
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
+    //    float horizontalInput = Input.GetAxisRaw("Horizontal");
+    //    float verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (FirstShoot)
-        {
-         //   Vector2 vector2 = new Vector2(1f, 0f);
+    //    if (FirstShoot)
+    //    {
+    //     //   Vector2 vector2 = new Vector2(1f, 0f);
             
-            lastMoveDirection = Vector2.right;
-            FirstShoot = false;
-        }
+    //        lastMoveDirection = Vector2.right;
+    //        FirstShoot = false;
+    //    }
 
-        // Ellenõrizzük, hogy a játékos mozog-e
-        if (horizontalInput != 0f || verticalInput != 0f)
-        {
-            lastMoveDirection = new Vector2(horizontalInput, verticalInput);
-        }
-        else
-        {
-            if (lastMoveDirection.x < 0)
-            {
-                lastMoveDirection = new Vector2(-1f, 0f);
+    //    // Ellenõrizzük, hogy a játékos mozog-e
+    //    if (horizontalInput != 0f || verticalInput != 0f)
+    //    {
+    //        lastMoveDirection = new Vector2(horizontalInput, verticalInput);
+    //    }
+    //    else
+    //    {
+    //        if (lastMoveDirection.x < 0)
+    //        {
+    //            lastMoveDirection = new Vector2(-1f, 0f);
 
-            }
-            else
-            {
-                lastMoveDirection = new Vector2(1f, 0f);
-           }
+    //        }
+    //        else
+    //        {
+    //            lastMoveDirection = new Vector2(1f, 0f);
+    //       }
             
 
-        }
-    }
+    //    }
+    //}
 
 }

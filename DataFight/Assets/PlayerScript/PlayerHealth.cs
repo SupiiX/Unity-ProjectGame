@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject Heart;
     private Animator animator;
 
+    public GameManage GManager;
 
     public Sprite[] FaceImage;
 
@@ -63,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
         {
             CurrentHealth = 0;
 
-            //Debug.Log("meghaltal");
+            GManager.GameEnd();
             
         }
 
