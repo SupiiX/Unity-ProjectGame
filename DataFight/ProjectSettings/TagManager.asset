@@ -9,7 +9,6 @@ TagManager:
   - Ground
   - Bullet
   - Enemy
-  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -44,18 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 2970979457
-    locked: 0
-  - name: Hand
-    uniqueID: 2585578569
-    locked: 0
   - name: BulletSpawn
     uniqueID: 152409775
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: VFX
-    uniqueID: 3931745037
     locked: 0
