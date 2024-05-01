@@ -13,7 +13,13 @@ public class PlayerHealth : MonoBehaviour
     public int CurrentHealth = 4; // Jelenlegi  leter 
     public TMP_Text HealthText;
 
-    public UnityEngine.UI.Image Heart;
+    //public UnityEngine.UI.Image Heart;
+
+    public GameObject Heart;
+    private Animator animator;
+
+    public GameManage GManager;
+
     public Sprite[] FaceImage;
 
 
@@ -22,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        animator = Heart.GetComponent<Animator>();
+
         text = HealthText.GetComponent<TMP_Text>();
 
         CurrentHealth = MaxHealth;
@@ -33,6 +41,20 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            DecreaseHealth(1);
+        }
+        else if(other.CompareTag("Obstacle"))
+        {
+            DecreaseHealth(1);
+
+        }
+    }
+
+
 
     public void DecreaseHealth(int amount)
     {
@@ -42,11 +64,14 @@ public class PlayerHealth : MonoBehaviour
         {
             CurrentHealth = 0;
 
-            Debug.Log("meghaltal");
+            GManager.GameEnd();
             
         }
 
         UpdateHealthUI();
+
+
+     
     }
 
     void UpdateHealthUI()
@@ -56,11 +81,13 @@ public class PlayerHealth : MonoBehaviour
             text.text = CurrentHealth.ToString();
         }
 
-        Heart.sprite = FaceImage[CurrentHealth];
+        animator.SetInteger("ChangeHp", CurrentHealth);
+
+        //Heart.sprite = FaceImage[CurrentHealth];      
+    }
+
+  
+
 
 
     }
-
-
-
-}
