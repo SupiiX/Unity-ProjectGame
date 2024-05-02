@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject DustLeft;
     private Animator animatorLeft;
 
-
+    private Animator RunningAnimation;
 
     private bool AfterJump = false;
 
@@ -36,6 +36,8 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
+        RunningAnimation = GetComponent<Animator>();
+
         isDodging = GetComponent<Dodge>().ISdodging;
 
         rb = GetComponent<Rigidbody2D>();
@@ -70,9 +72,11 @@ public class PlayerMove : MonoBehaviour
         {
             spriteRenderer.flipX = true; // Tükrözve marad
         }
-        }
 
-    }
+            RunningAnimation.SetBool("Running", horizontalInput != 0f); /// runningAnimation  
+
+        }
+        }
 
     void Update()
     {

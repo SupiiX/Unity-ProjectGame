@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7b1d00874ade6de4ea02aa77554276f6
+guid: 282620ee18a2516489a77cf1ae8c091b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_0
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8074ce28b373534bb7cfeeabf39241a
-      internalID: 55799637
+      spriteID: 4a8d14c21398ad64f81d35c84e4f38b0
+      internalID: 496105906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_1
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_1
       rect:
         serializedVersion: 2
         x: 464
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8699ef65c74e8b14396d2b54e74bee3c
-      internalID: 344806709
+      spriteID: a6ce61e870cab45429a0c3514d08208f
+      internalID: 1807047107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_2
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_2
       rect:
         serializedVersion: 2
         x: 928
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea895d2805fed5c49a3a70e98f89bcdd
-      internalID: 44454211
+      spriteID: a7afb5270a40b3a42a2a40178ccc1f2f
+      internalID: 1974747616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_3
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_3
       rect:
         serializedVersion: 2
         x: 1392
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b8d444b15d6159498d221fe861db86f
-      internalID: -863846198
+      spriteID: 4ceb16badaeddbe4586f049bba593762
+      internalID: 1294564395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_4
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_4
       rect:
         serializedVersion: 2
         x: 1856
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8f268302e16a814a90131d7c94b91a7
-      internalID: -520356009
+      spriteID: 84ddcffcad05c87439172cfd704d4af5
+      internalID: -1370047742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_5
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_5
       rect:
         serializedVersion: 2
         x: 2320
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254c94e0f701cfc4a9c0923b77acd08e
-      internalID: 1871317048
+      spriteID: 1901864c4fd141849bccb2b6267805e3
+      internalID: -2020130978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_6
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_6
       rect:
         serializedVersion: 2
         x: 2784
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e71e2efcc993725469cc3f6045ac2584
-      internalID: -1281617536
+      spriteID: 50fd4a7e37a233e489103207060ea209
+      internalID: -1161231606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_7
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_7
       rect:
         serializedVersion: 2
         x: 3248
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edf0c9d79d2e23b4da65d2eea137ac88
-      internalID: -219989444
+      spriteID: 012b884372bd7214391ca644460ecccd
+      internalID: -2021036836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_8
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_8
       rect:
         serializedVersion: 2
         x: 3712
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc6d979d1bb8e84449232d94126cf0ab
-      internalID: -1855499993
+      spriteID: 473bd49e41bef4d4fb19e2ba1ecff367
+      internalID: 976040226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_9
+      name: PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_9
       rect:
         serializedVersion: 2
         x: 4176
@@ -300,8 +300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9814fb8444179174d889f4e359d446b1
-      internalID: 1494014245
+      spriteID: 10a43706838961e4198dc0b54787772e
+      internalID: -2129875756
       vertices: []
       indices: 
       edges: []
@@ -317,16 +317,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_0: 55799637
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_1: 344806709
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_2: 44454211
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_3: -863846198
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_4: -520356009
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_5: 1871317048
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_6: -1281617536
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_7: -219989444
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_8: -1855499993
-      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop_9: 1494014245
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_0: 496105906
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_1: 1807047107
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_2: 1974747616
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_3: 1294564395
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_4: -1370047742
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_5: -2020130978
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_6: -1161231606
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_7: -2021036836
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_8: 976040226
+      PC Computer - Cuphead Dont Deal With the Devil - Item Sold SFX Shop (1)_9: -2129875756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

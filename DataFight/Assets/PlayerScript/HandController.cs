@@ -70,10 +70,14 @@ public class HandController : MonoBehaviour
             if (lastMoveDirection == Vector2.left)
             {
                 SetActiveObject(LeftHand1);
+
+                //LeftHand1.SetActive(false);
             }
             else
             {
-                SetActiveObject(Hand1);
+               SetActiveObject(Hand1);
+
+               // Hand1.SetActive(false);
             }
 
          

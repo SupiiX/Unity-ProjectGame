@@ -9,10 +9,15 @@ public class CeilObstacle : MonoBehaviour
     public int health = 100;
     private int currentHealth; // Jelenlegi életerõ
 
+    public GameObject PuffAnimation;
+
+    private Animator PuffAnimator;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = health;
+
+        PuffAnimator = PuffAnimation.GetComponent<Animator>();
     }
 
   
@@ -33,21 +38,35 @@ public class CeilObstacle : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
+   
+
         if (other.gameObject.CompareTag("Ground"))
         {
+          
 
             Destroy(gameObject);
 
-        }else if (other.CompareTag("Player"))
+        }
+        else if (other.CompareTag("Player"))
         {
+
+            //Destroy(gameObject);
 
             Destroy(gameObject);
         }
 
+        
 
+        PuffAnimator.SetBool("DashDust", true);
 
+        ResetJumpDustTrigger();
     }
 
+    IEnumerator ResetJumpDustTrigger()
+    {
+        yield return new WaitForSeconds(0.1f);
+        PuffAnimator.SetBool("DashDust", false);
+    }
 
 
 
