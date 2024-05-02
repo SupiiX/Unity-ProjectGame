@@ -11,7 +11,9 @@ public class PlayerMove : MonoBehaviour
 
    
     private SpriteRenderer spriteRenderer;
-    private bool isGrounded;
+
+    public bool isGrounded = false;
+
     private Rigidbody2D rb;
     private float horizontalInput;
 
@@ -150,10 +152,7 @@ public class PlayerMove : MonoBehaviour
     //    yield return new WaitForSeconds(0.35f);
     //    Animation.SetBool("DashDust", false);
     //}
-
-
-
-
+  
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -173,6 +172,13 @@ public class PlayerMove : MonoBehaviour
             isGrounded = false;
 
         }
+    }
+
+    public void RefreshCollider()
+    {
+        // Frissítjük a játékos colliderét
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
 

@@ -32,6 +32,7 @@ public class Shooting : MonoBehaviour
     private float Horizontal;
     private float Vertical;
 
+    private bool FaceChanged = false;
 
     void Start()
     {
@@ -43,6 +44,24 @@ public class Shooting : MonoBehaviour
     {
         Horizontal = Input.GetAxis("Horizontal");
         Vertical = Input.GetAxis("Vertical");
+
+
+        if (Horizontal < 0) // Balra mozgás esetén
+        {
+            //spriteRenderer.flipX = true; // Tükrözve
+            FaceChanged = true;
+        }
+        else if (Horizontal > 0) // Jobbra mozgás esetén
+        {
+            //   spriteRenderer.flipX = false; // Normál
+            FaceChanged = false;
+        }
+        // Ha a karakter nem mozog, de az elõzõ mozgás irányában volt az arc
+        else if (FaceChanged == true)
+        {
+            //spriteRenderer.flipX = true; // Tükrözve marad
+        }
+
 
         if (Horizontal != 0f || Vertical != 0f)
         {
@@ -82,43 +101,47 @@ public class Shooting : MonoBehaviour
         if (Horizontal == 0 && Vertical == 0)
         {
            
-            if (lastMoveDirection == Vector2.left)
+            if (FaceChanged)
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPointLeft.transform.position, Quaternion.identity);
-                              
+
+                BulletGO = Vector2.left;
+
             }
             else
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
 
+                BulletGO = Vector2.right;
+
             }         
-
-            BulletGO = lastMoveDirection;
-
+                     
          }
 
         // joystick jobbra van mozgatva
         else if (Horizontal > 0 && Vertical < 0.2 || Horizontal < 0 && Vertical < 0.2)
         {
-            if (lastMoveDirection == Vector2.left)
+            if (FaceChanged)
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPointLeft.transform.position, Quaternion.identity);
+
+                BulletGO = Vector2.left;
 
             }
             else
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity);
 
-            }
-                  
+                BulletGO = Vector2.right;
 
-            BulletGO = lastMoveDirection;
+            }
+                            
 
         }
         //  joystick átlósan felfelé van mozgatva
         else if (Horizontal > 0.6 && Vertical > 0.6 || Horizontal < -0.6 && Vertical > 0.6)
         {
-            if (lastMoveDirection == Vector2.left)
+            if (FaceChanged)
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint2Left.transform.position, Quaternion.identity);
 
@@ -136,21 +159,21 @@ public class Shooting : MonoBehaviour
         else if (Vertical == 1 && Horizontal < 0.4)
         {
 
-            if (lastMoveDirection == Vector2.left)
+            if (FaceChanged)
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint3Left.transform.position, Quaternion.identity);
 
+                
             }
             else
             {
                 bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
-
-                BulletGO = new Vector2(0, 1);
+                            
 
             }
+            BulletGO = new Vector2(0, 1);
 
-
-           // bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
+            // bullet = Instantiate(bulletPrefab, BulletSpawnPoint3.transform.position, Quaternion.identity);
 
         }
 

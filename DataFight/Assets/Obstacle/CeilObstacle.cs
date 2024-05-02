@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class CeilObstacle : MonoBehaviour
 {
-
     public int health = 100;
     private int currentHealth; // Jelenlegi életerõ
 
     public GameObject PuffAnimation;
 
     private Animator PuffAnimator;
+    private bool isDestroyed = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,55 +22,89 @@ public class CeilObstacle : MonoBehaviour
         PuffAnimator = PuffAnimation.GetComponent<Animator>();
     }
 
-  
-
     public void TakeDamage(int damage)
     {
-       // Debug.Log("demage");
+        // Debug.Log("demage");
 
         currentHealth -= damage; // Életerõ csökkentése a kapott sebzés értékével
 
         // Ha az életerõ eléri vagy meghaladja a 0-t, akkor az akadályt megsemmisítjük
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            if (!isDestroyed)
+            {
+                StartCoroutine(DestroyObstacleWithDelay());
+            }
         }
+    }
+
+    IEnumerator DestroyObstacleWithDelay()
+    {
+        isDestroyed = true;
+        yield return new WaitForSeconds(0.4f);
+        Destroy(gameObject);
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
-   
+        if (isDestroyed)
+        {
+            return; // Ha már megsemmisült az akadály, ne történjen semmi
+        }
 
         if (other.gameObject.CompareTag("Ground"))
         {
-          
-
-            Destroy(gameObject);
-
+            if (!isDestroyed)
+            {
+                StartCoroutine(DestroyObstacleWithDelay());
+            }
         }
         else if (other.CompareTag("Player"))
         {
+            //Játékoshoz való ütközés esetén
 
-            //Destroy(gameObject);
+            PlayerMove playerMove = other.GetComponent<PlayerMove>();
 
-            Destroy(gameObject);
+          
+            if (!isDestroyed)
+            {
+                StartCoroutine(DestroyObstacleWithDelay(playerMove));
+            }
+
+           // GroundTrigger.SetActive(false);
+
+
         }
-
-        
 
         PuffAnimator.SetBool("DashDust", true);
 
         ResetJumpDustTrigger();
+
+
+
+       // StartCoroutine(ResetGroundTrigger());
     }
+
+
+    IEnumerator DestroyObstacleWithDelay(PlayerMove playerMove)
+    {
+        isDestroyed = true;
+        yield return new WaitForSeconds(0.4f);
+        Destroy(gameObject);
+
+        if (playerMove != null)
+        {
+            playerMove.isGrounded = true;
+        }
+
+    }
+
+
 
     IEnumerator ResetJumpDustTrigger()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.4f);
         PuffAnimator.SetBool("DashDust", false);
     }
-
-
-
-
 }
