@@ -2819,6 +2819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   jumpForce: 4
+  isGrounded: 0
   DustRight: {fileID: 1216708141}
   DustLeft: {fileID: 1874250886}
 --- !u!114 &898031476
@@ -4643,7 +4644,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1429658106}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025955413}
+        m_TargetAssemblyTypeName: GameManage, Assembly-CSharp
+        m_MethodName: QuitToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1429658106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5350,7 +5363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   PuffAnimation: {fileID: 1824751671}
-  GroundTrigger: {fileID: 1060165924}
 --- !u!1 &1749517467
 GameObject:
   m_ObjectHideFlags: 0
@@ -6381,10 +6393,10 @@ SceneRoots:
   - {fileID: 765468677}
   - {fileID: 1105700981}
   - {fileID: 1645397021}
-  - {fileID: 1539011569}
   - {fileID: 594019687}
   - {fileID: 873807670}
   - {fileID: 1749517469}
   - {fileID: 1739493919}
   - {fileID: 1025955414}
   - {fileID: 2098776239}
+  - {fileID: 1539011569}

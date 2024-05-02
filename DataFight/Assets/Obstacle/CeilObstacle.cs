@@ -41,7 +41,7 @@ public class CeilObstacle : MonoBehaviour
     IEnumerator DestroyObstacleWithDelay()
     {
         isDestroyed = true;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.35f);
         Destroy(gameObject);
 
     }
@@ -79,8 +79,8 @@ public class CeilObstacle : MonoBehaviour
 
         PuffAnimator.SetBool("DashDust", true);
 
-        ResetJumpDustTrigger();
 
+        StartCoroutine(ResetJumpDustTrigger()); 
 
 
        // StartCoroutine(ResetGroundTrigger());
@@ -90,7 +90,7 @@ public class CeilObstacle : MonoBehaviour
     IEnumerator DestroyObstacleWithDelay(PlayerMove playerMove)
     {
         isDestroyed = true;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.35f);
         Destroy(gameObject);
 
         if (playerMove != null)
@@ -104,7 +104,7 @@ public class CeilObstacle : MonoBehaviour
 
     IEnumerator ResetJumpDustTrigger()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.35f);
         PuffAnimator.SetBool("DashDust", false);
     }
 }
