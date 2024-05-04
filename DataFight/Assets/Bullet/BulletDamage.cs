@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class BulletDamage : MonoBehaviour
@@ -44,11 +45,17 @@ public class BulletDamage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Trigger");
 
         if (other.gameObject.CompareTag("Enemy"))
         {
 
             hasCollided = true; // Állítsuk be, hogy a lövedék ütközött
+            if (other.gameObject.TryGetComponent<Enemy_Health>(out Enemy_Health health))
+            {
+                health.TakeDamage(damage);
+                Debug.Log($"Succesful collision!");
+            }
 
         }
         else if (other.gameObject.CompareTag("Obstacle"))
@@ -67,6 +74,18 @@ public class BulletDamage : MonoBehaviour
         }
 
     }
+
+    /* void OnCollisionEnter2D(Collision2D collision)
+    {
+        hasCollided = true;
+        
+        if (collision.gameObject.TryGetComponent<Enemy_Health>(out Enemy_Health health))
+        {
+           health.TakeDamage(damage);
+            Debug.Log($"Succesful collision!");
+        }
+       
+    }*/
 
 
     void DestroyObject()

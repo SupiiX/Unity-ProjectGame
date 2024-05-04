@@ -41,7 +41,7 @@ public class EnemyRun : MonoBehaviour
             rb.velocity = new Vector2(speed,0);
         }
 
-        if(Vector2.Distance(transform.position,currentPoint.position)<3f && currentPoint == pointB.transform)
+        if(Vector2.Distance(transform.position,currentPoint.position)<1f && currentPoint == pointB.transform)
         {
             // anim.SetTrigger("Turn");
             // yield return new WaitForSeconds(1);
@@ -49,7 +49,7 @@ public class EnemyRun : MonoBehaviour
             flip();
             currentPoint = pointA.transform;                       
         }
-        if (Vector2.Distance(transform.position, currentPoint.position) < 3f && currentPoint == pointA.transform)
+        if (Vector2.Distance(transform.position, currentPoint.position) < 1f && currentPoint == pointA.transform)
         {           
            // anim.SetTrigger("Turn");
            // yield return new WaitForSeconds(1);
@@ -70,8 +70,8 @@ public class EnemyRun : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(pointA.transform.position,2f);
-        Gizmos.DrawWireSphere(pointB.transform.position, 2f);
+        Gizmos.DrawWireSphere(pointA.transform.position,1f);
+        Gizmos.DrawWireSphere(pointB.transform.position, 1f);
         Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
     }
 }
