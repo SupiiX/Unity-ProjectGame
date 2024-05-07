@@ -22,15 +22,8 @@ public class PlayerHealth : MonoBehaviour
 
     public Sprite[] FaceImage;
 
-    public SpriteRenderer renderer;
-
 
     private TMP_Text text;
-    
-    //[Header ("IFrames")]
-    //[SerializeField] float duration = 1f;
-    //[SerializeField] int numberOfFlashes = 3;
-    
 
 
     void Start()
@@ -39,44 +32,27 @@ public class PlayerHealth : MonoBehaviour
 
         text = HealthText.GetComponent<TMP_Text>();
 
-        renderer = GetComponent<SpriteRenderer>();
-
         CurrentHealth = MaxHealth;
         UpdateHealthUI();
     }
 
     void Update()
     {
-
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        
         if (other.CompareTag("Enemy"))
         {
             DecreaseHealth(1);
         }
-        else if (other.CompareTag("Obstacle"))
+        else if(other.CompareTag("Obstacle"))
         {
             DecreaseHealth(1);
 
         }
     }
-
-    //IEnumerator IFrame()
-    //{
-    //    //Physics2D.IgnoreLayerCollision(ide a player ayer száma kell,ide az enemy layer száma kell,true);
-    //   for (int i = 0; i < numberOfFlashes; i++)
-    //    {
-    //        renderer.color = new Color(1, 0, 0, 0.5f);
-    //        yield return new WaitForSeconds(duration/(numberOfFlashes*2));
-    //        renderer.color = Color.white;
-    //        yield return new WaitForSeconds(duration / (numberOfFlashes * 2));
-    //    }
-    //    //Physics2D.IgnoreLayerCollision(ide a player ayer száma kell,ide az enemy layer száma kell,false);
-
-    //}
 
 
 
