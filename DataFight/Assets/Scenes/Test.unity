@@ -898,6 +898,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!1 &1701250392
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +983,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.04}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1951916385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1016,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!1001 &3983856718686854372
+=======
+--- !u!1001 &5380687402920250692
+>>>>>>> Stashed changes
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1021,6 +1028,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< Updated upstream
     - target: {fileID: 1364055504295469764, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: m_LocalPosition.x
       value: 49.7
@@ -1073,11 +1081,69 @@ PrefabInstance:
       propertyPath: pointB
       value: 
       objectReference: {fileID: 1951916385}
+=======
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 49.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461062656023429727, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900489935813674675, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: pointA
+      value: 
+      objectReference: {fileID: 1518060967}
+    - target: {fileID: 3900489935813674675, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: pointB
+      value: 
+      objectReference: {fileID: 1951916385}
+    - target: {fileID: 8070900581446004913, guid: 971669608904fd0499f4884f82489868, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
+<<<<<<< Updated upstream
   m_SourcePrefab: {fileID: 100100000, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: 971669608904fd0499f4884f82489868, type: 3}
+>>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1086,7 +1152,11 @@ SceneRoots:
   - {fileID: 108580657}
   - {fileID: 1701250394}
   - {fileID: 418127819}
+<<<<<<< Updated upstream
   - {fileID: 3983856718686854372}
+=======
+  - {fileID: 5380687402920250692}
+>>>>>>> Stashed changes
   - {fileID: 398557485}
   - {fileID: 1060391654}
   - {fileID: 1518060968}
