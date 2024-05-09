@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CeilingObstacleSpawner : MonoBehaviour
+public class PlusPointSpawner : MonoBehaviour
 {
-    public GameObject Obstacle; // Az akad�ly prefabja
+
+    public GameObject PlusPoint; // Az point prefabja
     public Transform startPoint; // Kezd�pont, ahol az akad�lyok megjelennek
     public Transform endPoint; // V�gpont, ahol az akad�lyok v�get �rnek
     public float minSpawnInterval = 1f; // Minimum id�k�z az akad�lyok k�z�tt
     public float maxSpawnInterval = 7f; // Maximum id�k�z az akad�lyok k�z�tt
-    public GameObject player;
+    ///public GameObject player;
 
    // private Transform PlayerPosition;
 
@@ -30,16 +31,16 @@ public class CeilingObstacleSpawner : MonoBehaviour
         {
             
             //veletlen
-            //Vector3 spawnPosition = new Vector3(Random.Range(startPoint.position.x, endPoint.position.x), startPoint.position.y, 0f);
+            Vector3 spawnPosition = new Vector3(Random.Range(startPoint.position.x, endPoint.position.x), startPoint.position.y, 0f);
                        
 
             // szandekos
-            Vector3 spawnPosition = new Vector3(player.transform.position.x, startPoint.position.y, 0f);
+            //Vector3 spawnPosition = new Vector3(player.transform.position.x, startPoint.position.y, 0f);
             
             
-            GameObject newObstacle = Instantiate(Obstacle, spawnPosition, Quaternion.identity);
+            GameObject newObstacle = Instantiate(PlusPoint, spawnPosition, Quaternion.identity);
 
-            Debug.DrawLine(player.transform.position, newObstacle.transform.position, Color.red, 3f);
+           // Debug.DrawLine(player.transform.position, newObstacle.transform.position, Color.red, 3f);
 
             // Friss�tj�k a k�vetkez� akad�ly l�trehoz�s�nak id�pontj�t
             nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);

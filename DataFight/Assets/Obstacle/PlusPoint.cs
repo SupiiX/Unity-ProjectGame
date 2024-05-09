@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CeilObstacle : MonoBehaviour
+public class PlusPoint : MonoBehaviour
 {
     public int health = 100;
     private int currentHealth; // Jelenlegi �leter�
