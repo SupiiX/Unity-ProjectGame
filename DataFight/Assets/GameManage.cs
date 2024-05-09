@@ -7,17 +7,9 @@ public class GameManage : MonoBehaviour
 {
     public GameObject Endscreen;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Animator transitionAnimator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void GameEnd()
     {
@@ -32,6 +24,9 @@ public class GameManage : MonoBehaviour
         Time.timeScale = 1;
 
         SceneManager.LoadScene(1);
+
+        //LoadLevel(1);
+
     }
 
     public void QuitToMainMenu()
@@ -39,6 +34,23 @@ public class GameManage : MonoBehaviour
         Time.timeScale = 1;
 
         SceneManager.LoadScene(0);
+
+        //LoadLevel(0);
+
+    }
+
+    IEnumerator LoadLevel(int i)
+    {
+
+        transitionAnimator.SetTrigger("End");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(i);
+
+        transitionAnimator.SetTrigger("Start");
+
+
     }
 
 
