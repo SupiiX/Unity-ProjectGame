@@ -11,13 +11,31 @@ public class GameManage : MonoBehaviour
 
     public GameObject Image;
 
+    public GameObject PauseMenu;
+
     //public Animator transitionAnimator;
 
     private void Start()
     {
+
         Image.SetActive(true);
 
         StartCoroutine(First());
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            //GetComponent<PauseMenu>().Pause();
+
+            Time.timeScale = 0;
+
+            PauseMenu.SetActive(true);
+
+        }
+
 
     }
 
@@ -62,7 +80,7 @@ public class GameManage : MonoBehaviour
         yield return new WaitForSeconds(3);
 
 
-        SceneManager.LoadSceneAsync(i);
+        SceneManager.LoadScene(i);
 
         //yield return new WaitForEndOfFrame();
 

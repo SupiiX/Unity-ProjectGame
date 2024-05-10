@@ -128,11 +128,7 @@ public class PlayerMove : MonoBehaviour
         }
 
 
-        //if (Input.GetKeyDown(KeyCode.P)){
-
-        // GetComponent<PauseMenu>().Pause();
-
-        //}      
+           
     }
 
     IEnumerator ResetJumpDustTrigger(Animator Animation)

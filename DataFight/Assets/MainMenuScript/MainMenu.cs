@@ -40,7 +40,7 @@ public class MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
-        SceneManager.LoadSceneAsync(i);
+        SceneManager.LoadScene(i);
 
         //yield return new WaitForEndOfFrame();
 

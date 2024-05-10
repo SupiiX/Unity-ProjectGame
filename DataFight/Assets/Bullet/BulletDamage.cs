@@ -54,7 +54,7 @@ public class BulletDamage : MonoBehaviour
             if (other.gameObject.TryGetComponent<Enemy_Health>(out Enemy_Health health))
             {
                 health.TakeDamage(damage);
-                Debug.Log($"Succesful collision!");
+               // Debug.Log($"Succesful collision!");
             }
 
         }
