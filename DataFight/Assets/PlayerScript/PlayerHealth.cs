@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
     public Sprite[] FaceImage;
 
-    public SpriteRenderer renderer;
+    //public SpriteRenderer renderer;
 
 
     private TMP_Text text;
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
         text = HealthText.GetComponent<TMP_Text>();
 
-        renderer = GetComponent<SpriteRenderer>();
+      //  renderer = GetComponent<SpriteRenderer>();
 
         CurrentHealth = MaxHealth;
         UpdateHealthUI();

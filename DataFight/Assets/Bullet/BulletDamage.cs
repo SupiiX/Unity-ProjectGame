@@ -45,7 +45,7 @@ public class BulletDamage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger");
+       // Debug.Log("Trigger");
 
         if (other.gameObject.CompareTag("Enemy"))
         {

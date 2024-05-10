@@ -7,7 +7,19 @@ public class GameManage : MonoBehaviour
 {
     public GameObject Endscreen;
 
-    public Animator transitionAnimator;
+    public Animator TransitionAnimator;
+
+    public GameObject Image;
+
+    //public Animator transitionAnimator;
+
+    private void Start()
+    {
+        Image.SetActive(true);
+
+        StartCoroutine(First());
+
+    }
 
 
 
@@ -16,43 +28,59 @@ public class GameManage : MonoBehaviour
 
         Time.timeScale = 0;
 
+        // itt meg meg kell allitani az idot
+
         Endscreen.SetActive(true);
     }
 
     public void Restart()
     {
         Time.timeScale = 1;
+        Image.SetActive(true);
 
-        SceneManager.LoadScene(1);
-
-        //LoadLevel(1);
-
+        StartCoroutine(LoadLevel(1));
+        //SceneManager.LoadScene(1);
     }
 
     public void QuitToMainMenu()
     {
         Time.timeScale = 1;
 
-        SceneManager.LoadScene(0);
+        Image.SetActive(true);
 
-        //LoadLevel(0);
+        StartCoroutine(LoadLevel(0));
+
+        //SceneManager.LoadScene(0);
 
     }
+
 
     IEnumerator LoadLevel(int i)
     {
+        TransitionAnimator.SetTrigger("End");
 
-        transitionAnimator.SetTrigger("End");
+        yield return new WaitForSeconds(3);
 
+
+        SceneManager.LoadSceneAsync(i);
+
+        //yield return new WaitForEndOfFrame();
+
+        //TransitionAnimator.SetTrigger("Start");
+
+    }
+
+    IEnumerator First()
+    {
         yield return new WaitForSeconds(1);
 
-        SceneManager.LoadScene(i);
-
-        transitionAnimator.SetTrigger("Start");
-
+        Image.SetActive(false);
 
     }
 
 
 
-}
+
+
+
+    }
