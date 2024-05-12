@@ -49,13 +49,23 @@ public class BulletDamage : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
+            Enemy_Health enemy_Health = other.GetComponent<Enemy_Health>();
 
-            hasCollided = true; // Állítsuk be, hogy a lövedék ütközött
-            if (other.gameObject.TryGetComponent<Enemy_Health>(out Enemy_Health health))
+            if (enemy_Health != null)
             {
-                health.TakeDamage(damage);
-               // Debug.Log($"Succesful collision!");
+                enemy_Health.TakeDamage(damage);
+
             }
+
+            hasCollided = true; 
+                                 
+            
+            // Állítsuk be, hogy a lövedék ütközött
+            //if (other.gameObject.TryGetComponent<Enemy_Health>(out Enemy_Health health))
+            //{
+            //    health.TakeDamage(damage);
+            //   // Debug.Log($"Succesful collision!");
+            //}
 
         }
         else if (other.gameObject.CompareTag("Obstacle"))

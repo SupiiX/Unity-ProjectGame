@@ -4,30 +4,67 @@ using UnityEngine;
 
 public class Enemy_Health : MonoBehaviour
 {
+    public int maxHealth = 10;
+    private int currentHealth;
 
-    public int maxHealt = 10;
-    [SerializeField] private int currentHealth;
-    // Start is called before the first frame update
+    public GameObject puffDustAnimation;
+    private Animator puffAnimator;
+
+   private Rigidbody2D rb;
+
+
     void Start()
     {
-        currentHealth = maxHealt;
-    }
+        currentHealth = maxHealth;
+        puffAnimator = puffDustAnimation.GetComponent<Animator>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+       rb = GetComponent<Rigidbody2D>();
     }
-
-    
 
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            rb.velocity = Vector2.zero;
+
+            Die();
         }
-        Debug.Log($"{amount} adamage taken");
+        Debug.Log($"{amount} damage taken");
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            rb.velocity = Vector2.zero;
+
+
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        
+        // Kikapcsoljuk az enemy sprite-ját
+        GetComponent<SpriteRenderer>().enabled = false;
+
+      //  rb.velocity = Vector2.zero;
+
+        // Lejátszuk a puffDust animációt
+        puffAnimator.SetBool("DashDust", true);
+
+        // Várunk egy kicsit, hogy lejátssza az animációt
+        StartCoroutine(DestroyAfterAnimation());
+    }
+
+    IEnumerator DestroyAfterAnimation()
+    {
+        // Várunk, amíg lejátszódik a puffDust animáció
+        yield return new WaitForSeconds(0.5f);
+
+        // Megsemmisítjük az enemyt
+        Destroy(gameObject);
     }
 }

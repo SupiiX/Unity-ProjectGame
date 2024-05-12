@@ -7,7 +7,7 @@ public class EnemyRespawner : MonoBehaviour
     // Az enemy prefab
     public GameObject enemyPrefab;
 
-    public Transform SpawnPosition;
+    public Transform[] spawnPositions; // Több spawnpozíció
 
     // Az spawnolás idõköze
     public float spawnInterval = 5f;
@@ -32,9 +32,12 @@ public class EnemyRespawner : MonoBehaviour
     // Enemy spawnolása
     void SpawnEnemy()
     {
-        // Pozicionálás
-        Vector3 spawnPosition = SpawnPosition.position;
-        spawnPosition.x += Random.Range(-5f, 5f);
+        // Véletlenszerûen válasszunk spawnpozíciót
+        int randomIndex = Random.Range(0, spawnPositions.Length);
+        Vector3 spawnPosition = spawnPositions[randomIndex].position;
+
+        // Pozícionálás
+        spawnPosition.x += Random.Range(-5f, 1f);
 
         // Spawnolás
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
