@@ -5,46 +5,46 @@ using UnityEngine;
 public class PlusPointSpawner : MonoBehaviour
 {
 
-    public GameObject PlusPoint; // Az point prefabja
-    public Transform startPoint; // Kezd�pont, ahol az akad�lyok megjelennek
-    public Transform endPoint; // V�gpont, ahol az akad�lyok v�get �rnek
-    public float minSpawnInterval = 1f; // Minimum id�k�z az akad�lyok k�z�tt
-    public float maxSpawnInterval = 7f; // Maximum id�k�z az akad�lyok k�z�tt
+    public GameObject PlusPoint; // Első plusz pont prefabja
+    public GameObject PlusPoint2; // Második plusz pont prefabja
+    public Transform startPoint; // Kezdőpont
+    public Transform endPoint; // Végpont
+    public float minSpawnInterval = 1f; // Minimum időközösség
+    public float maxSpawnInterval = 7f; // Maximum időközösség
     ///public GameObject player;
 
-   // private Transform PlayerPosition;
+    // private Transform PlayerPosition;
 
-    private float nextSpawnTime; // Az id�, amikor a k�vetkez� akad�lyt l�tre kell hozni
+    private float nextSpawnTime; // Következő akadály létrehozásának ideje
 
     void Start()
     {
-       // PlayerPosition = player.GetComponent<Transform>();
+        // PlayerPosition = player.GetComponent<Transform>();
 
-        // Be�ll�tjuk az els� akad�ly l�trehoz�s�nak id�pontj�t
+        // Beállítjuk az első akadály létrehozásának időpontját
         nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
     }
 
     void Update()
     {
-        // Ellen�rizz�k, hogy el�rkezett-e az id� a k�vetkez� akad�ly l�trehoz�s�ra
+        // Ellenőrizzük, hogy eljött-e az idő a következő akadály létrehozására
         if (Time.time >= nextSpawnTime)
         {
-            
-            //veletlen
+
+            // Véletlen pozíció
             Vector3 spawnPosition = new Vector3(Random.Range(startPoint.position.x, endPoint.position.x), startPoint.position.y, 0f);
-                       
 
-            // szandekos
-            //Vector3 spawnPosition = new Vector3(player.transform.position.x, startPoint.position.y, 0f);
-            
-            
-            GameObject newObstacle = Instantiate(PlusPoint, spawnPosition, Quaternion.identity);
 
-           // Debug.DrawLine(player.transform.position, newObstacle.transform.position, Color.red, 3f);
+            // Véletlen prefab kiválasztása
+            int randomPrefabIndex = Random.Range(0, 2); // 0: PlusPoint, 1: PlusPoint2
+            GameObject newObstacle = Instantiate(randomPrefabIndex == 0 ? PlusPoint : PlusPoint2, spawnPosition, Quaternion.identity);
 
-            // Friss�tj�k a k�vetkez� akad�ly l�trehoz�s�nak id�pontj�t
+            // Debug.DrawLine(player.transform.position, newObstacle.transform.position, Color.red, 3f);
+
+            // Frissítjük a következő akadály létrehozásának időpontját
             nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
         }
     }
+
 
 }
