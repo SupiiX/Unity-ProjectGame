@@ -41,6 +41,9 @@ public class CeilObstacle : MonoBehaviour
     IEnumerator DestroyObstacleWithDelay()
     {
         isDestroyed = true;
+
+        GetComponent<SpriteRenderer>().enabled = false;
+
         yield return new WaitForSeconds(0.35f);
         Destroy(gameObject);
 
@@ -90,7 +93,11 @@ public class CeilObstacle : MonoBehaviour
     IEnumerator DestroyObstacleWithDelay(PlayerMove playerMove)
     {
         isDestroyed = true;
+
+        GetComponent<SpriteRenderer>().enabled = false;
+
         yield return new WaitForSeconds(0.35f);
+                      
         Destroy(gameObject);
 
         if (playerMove != null)
