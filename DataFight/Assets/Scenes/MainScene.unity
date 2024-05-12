@@ -1263,7 +1263,7 @@ Transform:
   m_GameObject: {fileID: 317572454}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.13, y: -3.06, z: 5.491103}
+  m_LocalPosition: {x: -6.78, y: -3.06, z: 5.491103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7071,9 +7071,10 @@ MonoBehaviour:
   Obstacle: {fileID: 1739493915}
   startPoint: {fileID: 594019687}
   endPoint: {fileID: 873807670}
-  minSpawnInterval: 1
-  maxSpawnInterval: 5
+  minSpawnInterval: 0
+  maxSpawnInterval: 3
   player: {fileID: 898031469}
+  difficultyIncreaseRate: 1
 --- !u!4 &1749517469
 Transform:
   m_ObjectHideFlags: 0
@@ -8082,7 +8083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4473287157104397658, guid: db71b233beaf94249b863a8b947f78bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.47
+      value: 8.52
       objectReference: {fileID: 0}
     - target: {fileID: 4473287157104397658, guid: db71b233beaf94249b863a8b947f78bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8236,7 +8237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4093531291990384001, guid: 72576783fa0e1b541afcb86d3bfe0516, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.52
+      value: -8.86
       objectReference: {fileID: 0}
     - target: {fileID: 4093531291990384001, guid: 72576783fa0e1b541afcb86d3bfe0516, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8289,7 +8290,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1709495243871949546, guid: ba0164a4b0e0aa741afb13b46d4cd8fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.88
+      value: 6.93
       objectReference: {fileID: 0}
     - target: {fileID: 1709495243871949546, guid: ba0164a4b0e0aa741afb13b46d4cd8fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8349,11 +8350,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6061411401562901265, guid: ba0164a4b0e0aa741afb13b46d4cd8fa, type: 3}
       propertyPath: m_Size.x
-      value: 0.7891233
+      value: 0.6547762
       objectReference: {fileID: 0}
     - target: {fileID: 6061411401562901265, guid: ba0164a4b0e0aa741afb13b46d4cd8fa, type: 3}
       propertyPath: m_Offset.x
-      value: 0.012427226
+      value: 0.020856366
       objectReference: {fileID: 0}
     - target: {fileID: 8341484278440906871, guid: ba0164a4b0e0aa741afb13b46d4cd8fa, type: 3}
       propertyPath: pointA

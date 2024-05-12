@@ -77,6 +77,8 @@ public class GameManage : MonoBehaviour
     {
         TransitionAnimator.SetTrigger("End");
 
+        CleanMemory();
+
         yield return new WaitForSeconds(3);
 
 
@@ -96,9 +98,15 @@ public class GameManage : MonoBehaviour
 
     }
 
-
-
-
-
-
+    void CleanMemory()
+    {
+        // Meghívjuk a garbage collector tisztító metódusát
+        System.GC.Collect();
+        // Megtisztítjuk a nem használt erõforrásokat
+        Resources.UnloadUnusedAssets();
     }
+
+
+
+
+}

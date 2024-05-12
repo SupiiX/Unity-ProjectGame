@@ -6,13 +6,14 @@ using UnityEngine;
 public class CeilObstacle : MonoBehaviour
 {
     public int health = 100;
-    private int currentHealth; // Jelenlegi �leter�
+    private int currentHealth; // Jelenlegi életerő
 
     public GameObject PuffAnimation;
 
     private Animator PuffAnimator;
     private bool isDestroyed = false;
 
+    private Collider2D obstacleCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +21,18 @@ public class CeilObstacle : MonoBehaviour
         currentHealth = health;
 
         PuffAnimator = PuffAnimation.GetComponent<Animator>();
+
+        // Collider referenciájának elmentése
+        obstacleCollider = GetComponent<Collider2D>();
     }
 
     public void TakeDamage(int damage)
     {
         // Debug.Log("demage");
 
-        currentHealth -= damage; // �leter� cs�kkent�se a kapott sebz�s �rt�k�vel
+        currentHealth -= damage; // Életerő csökkentése a kapott sebzés értékével
 
-        // Ha az �leter� el�ri vagy meghaladja a 0-t, akkor az akad�lyt megsemmis�tj�k
+        // Ha az életerő eléri vagy meghaladja a 0-t, akkor az akadályt megsemmisítjük
         if (currentHealth <= 0)
         {
             if (!isDestroyed)
@@ -42,18 +46,20 @@ public class CeilObstacle : MonoBehaviour
     {
         isDestroyed = true;
 
+        // Akadály sprite-jának kikapcsolása
         GetComponent<SpriteRenderer>().enabled = false;
+        // Collider trigger tulajdonságának kikapcsolása
+        obstacleCollider.isTrigger = false;
 
         yield return new WaitForSeconds(0.35f);
         Destroy(gameObject);
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (isDestroyed)
         {
-            return; // Ha m�r megsemmis�lt az akad�ly, ne t�rt�njen semmi
+            return; // Ha már megsemmisült az akadály, ne történjen semmi
         }
 
         if (other.gameObject.CompareTag("Ground"))
@@ -65,28 +71,19 @@ public class CeilObstacle : MonoBehaviour
         }
         else if (other.CompareTag("Player"))
         {
-            //J�t�koshoz val� �tk�z�s eset�n
+            //Játékoshoz való ütközés esetén
 
             PlayerMove playerMove = other.GetComponent<PlayerMove>();
 
-          
             if (!isDestroyed)
             {
                 StartCoroutine(DestroyObstacleWithDelay(playerMove));
             }
-
-           // GroundTrigger.SetActive(false);
-
-
         }
 
         PuffAnimator.SetBool("DashDust", true);
 
-
-        StartCoroutine(ResetJumpDustTrigger()); 
-
-
-       // StartCoroutine(ResetGroundTrigger());
+        StartCoroutine(ResetJumpDustTrigger());
     }
 
 
@@ -94,20 +91,20 @@ public class CeilObstacle : MonoBehaviour
     {
         isDestroyed = true;
 
+        // Akadály sprite-jának kikapcsolása
         GetComponent<SpriteRenderer>().enabled = false;
+        // Collider trigger tulajdonságának kikapcsolása
+        obstacleCollider.isTrigger = false;
 
         yield return new WaitForSeconds(0.35f);
-                      
+
         Destroy(gameObject);
 
         if (playerMove != null)
         {
             playerMove.isGrounded = true;
         }
-
     }
-
-
 
     IEnumerator ResetJumpDustTrigger()
     {

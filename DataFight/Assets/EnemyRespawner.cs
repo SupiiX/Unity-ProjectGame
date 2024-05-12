@@ -37,7 +37,18 @@ public class EnemyRespawner : MonoBehaviour
         Vector3 spawnPosition = spawnPositions[randomIndex].position;
 
         // Pozícionálás
-        spawnPosition.x += Random.Range(-5f, 1f);
+
+        if (randomIndex == 0)
+        {
+            spawnPosition.x += Random.Range(0f, 5f);
+        }
+        else
+        {
+            spawnPosition.x += Random.Range(-2f, 0f);
+
+        }
+
+      
 
         // Spawnolás
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);

@@ -4,46 +4,41 @@ using UnityEngine;
 
 public class CeilingObstacleSpawner : MonoBehaviour
 {
-    public GameObject Obstacle; // Az akad�ly prefabja
-    public Transform startPoint; // Kezd�pont, ahol az akad�lyok megjelennek
-    public Transform endPoint; // V�gpont, ahol az akad�lyok v�get �rnek
-    public float minSpawnInterval = 1f; // Minimum id�k�z az akad�lyok k�z�tt
-    public float maxSpawnInterval = 7f; // Maximum id�k�z az akad�lyok k�z�tt
-    public GameObject player;
+    public GameObject Obstacle; // Obstacle prefab
+    public Transform startPoint; // Start point
+    public Transform endPoint; // End point
+    public float minSpawnInterval; // Minimum spawn interval
+    public float maxSpawnInterval; // Maximum spawn interval
+    public GameObject player; // Player reference
+    public float difficultyIncreaseRate = 0.1f; // Rate at which difficulty increases (0.1f = 10% decrease per second)
 
-   // private Transform PlayerPosition;
-
-    private float nextSpawnTime; // Az id�, amikor a k�vetkez� akad�lyt l�tre kell hozni
+    private float currentSpawnInterval; // Current spawn interval
+    private float nextSpawnTime; // Time for next obstacle spawn
+    private float timeSinceStart = 0f; // Time elapsed since game start
 
     void Start()
     {
-       // PlayerPosition = player.GetComponent<Transform>();
-
-        // Be�ll�tjuk az els� akad�ly l�trehoz�s�nak id�pontj�t
-        nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
+        currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+        nextSpawnTime = Time.time + currentSpawnInterval;
     }
 
     void Update()
     {
-        // Ellen�rizz�k, hogy el�rkezett-e az id� a k�vetkez� akad�ly l�trehoz�s�ra
+        timeSinceStart += Time.deltaTime;
+
+        // Update spawn interval based on difficulty increase rate
+        currentSpawnInterval = Mathf.Max(minSpawnInterval, maxSpawnInterval - (difficultyIncreaseRate * timeSinceStart));
+
+        // Check if it's time to spawn an obstacle
         if (Time.time >= nextSpawnTime)
         {
-            
-            //veletlen
-            //Vector3 spawnPosition = new Vector3(Random.Range(startPoint.position.x, endPoint.position.x), startPoint.position.y, 0f);
-                       
-
-            // szandekos
             Vector3 spawnPosition = new Vector3(player.transform.position.x, startPoint.position.y, 0f);
-            
-            
             GameObject newObstacle = Instantiate(Obstacle, spawnPosition, Quaternion.identity);
 
             Debug.DrawLine(player.transform.position, newObstacle.transform.position, Color.red, 3f);
 
-            // Friss�tj�k a k�vetkez� akad�ly l�trehoz�s�nak id�pontj�t
-            nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
+            // Calculate next spawn time based on updated interval
+            nextSpawnTime = Time.time + currentSpawnInterval;
         }
     }
-
 }
