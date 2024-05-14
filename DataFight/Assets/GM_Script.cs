@@ -19,6 +19,9 @@ public class GM_Script : MonoBehaviour
     public void AddPoints(int pointsToAdd)
     {
         currentScore += pointsToAdd;
+
+        Debug.Log("ez a gm script");
+
         UpdateScoreText();
     }
 

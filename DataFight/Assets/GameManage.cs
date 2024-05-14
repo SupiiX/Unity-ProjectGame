@@ -14,7 +14,7 @@ public class GameManage : MonoBehaviour
 
     public GameObject PauseMenu;
 
-    public TMP_Text ScoreConter;
+    public TMP_Text ScoreCounter;
 
     public TMP_Text FinalCounter;
 
@@ -40,8 +40,6 @@ public class GameManage : MonoBehaviour
             PauseMenu.SetActive(true);
 
         }
-
-
     }
 
 
@@ -51,10 +49,12 @@ public class GameManage : MonoBehaviour
         Time.timeScale = 0;
 
         // itt meg meg kell allitani az idot
-             
-        
+                 
         Endscreen.SetActive(true);
 
+        Debug.Log($"{GetComponent<ScoreManager>().scoreText.text}");
+
+        ScoreCounter.text = GetComponent<ScoreManager>().scoreText.text;
         FinalCounter.text = GetComponent<CounterScript>().Counter.text;
 
     }
