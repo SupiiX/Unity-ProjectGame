@@ -25,7 +25,8 @@ public class PlayerHealth : MonoBehaviour
 
     //public SpriteRenderer renderer;
 
-    
+    public GameObject DamageFlash;
+    private Animator FlashAnim;
 
     private TMP_Text text;
     
@@ -40,6 +41,8 @@ public class PlayerHealth : MonoBehaviour
         animator = Heart.GetComponent<Animator>();
 
         text = HealthText.GetComponent<TMP_Text>();
+
+        FlashAnim = DamageFlash.GetComponent<Animator>();
 
       //  renderer = GetComponent<SpriteRenderer>();
 
@@ -86,6 +89,9 @@ public class PlayerHealth : MonoBehaviour
     {
        CurrentHealth -= amount;
 
+        FlashAnim.SetBool("ON", true);
+        StartCoroutine(Resetflash(FlashAnim));
+
         if (CurrentHealth <= 0)
         {
             CurrentHealth = 0;
@@ -95,11 +101,9 @@ public class PlayerHealth : MonoBehaviour
         }
 
         UpdateHealthUI();
-
-
-     
+             
     }
-
+        
     void UpdateHealthUI()
     {
         if (HealthText != null)
@@ -112,8 +116,14 @@ public class PlayerHealth : MonoBehaviour
         //Heart.sprite = FaceImage[CurrentHealth];      
     }
 
-  
-
-
-
+    IEnumerator Resetflash(Animator Animation)
+    {
+        yield return new WaitForSeconds(0.2f);
+        Animation.SetBool("ON", false);
     }
+
+
+
+
+
+}
