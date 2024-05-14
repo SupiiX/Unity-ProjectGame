@@ -11,9 +11,11 @@ public class CeilObstacle : MonoBehaviour
     public GameObject PuffAnimation;
 
     private Animator PuffAnimator;
-    private bool isDestroyed = false;
+    public bool isDestroyed = false;
 
     private Collider2D obstacleCollider;
+
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,24 @@ public class CeilObstacle : MonoBehaviour
 
         // Collider referenciájának elmentése
         obstacleCollider = GetComponent<Collider2D>();
+
+        rb = GetComponent<Rigidbody2D>();
     }
+    private void Update()
+    {
+        //if (isDestroyed == false)
+        //{
+        //    Collider2D[] colliders = GetComponents<Collider2D>();
+        //    foreach (Collider2D collider in colliders)
+        //    {
+        //        collider.isTrigger = false; // Kikapcsolja a collider triggerét
+        //    }
+
+        //}
+
+
+    }
+
 
     public void TakeDamage(int damage)
     {
@@ -49,7 +68,13 @@ public class CeilObstacle : MonoBehaviour
         // Akadály sprite-jának kikapcsolása
         GetComponent<SpriteRenderer>().enabled = false;
         // Collider trigger tulajdonságának kikapcsolása
-        obstacleCollider.isTrigger = false;
+        //obstacleCollider.isTrigger = false;
+
+        // ??
+        obstacleCollider.enabled = false;
+        obstacleCollider.enabled = false;
+        rb.velocity = Vector2.zero;
+        //
 
         yield return new WaitForSeconds(0.35f);
         Destroy(gameObject);
@@ -84,6 +109,8 @@ public class CeilObstacle : MonoBehaviour
         PuffAnimator.SetBool("DashDust", true);
 
         StartCoroutine(ResetJumpDustTrigger());
+
+
     }
 
 
@@ -94,7 +121,12 @@ public class CeilObstacle : MonoBehaviour
         // Akadály sprite-jának kikapcsolása
         GetComponent<SpriteRenderer>().enabled = false;
         // Collider trigger tulajdonságának kikapcsolása
-        obstacleCollider.isTrigger = false;
+        
+        // ?? 
+        obstacleCollider.enabled = false;
+        rb.velocity = Vector2.zero;
+        //
+
 
         yield return new WaitForSeconds(0.35f);
 

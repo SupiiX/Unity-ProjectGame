@@ -128,7 +128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1364055504295469764, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.88
+      value: 6.93
       objectReference: {fileID: 0}
     - target: {fileID: 1364055504295469764, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: m_LocalPosition.y
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2495811205460091500, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2495811205460091500, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: puffDustAnimation
@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518223395329818724, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: m_Size.y
-      value: 0.78446794
+      value: 0.81406605
       objectReference: {fileID: 0}
     - target: {fileID: 3518223395329818724, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: m_Offset.x
@@ -192,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518223395329818724, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: m_Offset.y
-      value: 0.07697953
+      value: 0.09177858
       objectReference: {fileID: 0}
     - target: {fileID: 3518223395329818724, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: m_IsTrigger
@@ -271,7 +271,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.020856366, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -282,5 +282,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.01}
+  m_Size: {x: 0.6547762, y: 1.01}
   m_EdgeRadius: 0

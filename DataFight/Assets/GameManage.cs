@@ -56,6 +56,8 @@ public class GameManage : MonoBehaviour
         Time.timeScale = 1;
         Image.SetActive(true);
 
+        TransitionAnimator.SetTrigger("End");
+
         StartCoroutine(LoadLevel(1));
         //SceneManager.LoadScene(1);
     }
@@ -63,24 +65,24 @@ public class GameManage : MonoBehaviour
     public void QuitToMainMenu()
     {
         Time.timeScale = 1;
-
         Image.SetActive(true);
+
+        TransitionAnimator.SetTrigger("End");
 
         StartCoroutine(LoadLevel(0));
 
-        //SceneManager.LoadScene(0);
+       // SceneManager.LoadScene(0);
 
     }
 
 
     IEnumerator LoadLevel(int i)
     {
-        TransitionAnimator.SetTrigger("End");
+        //TransitionAnimator.SetTrigger("End");
 
         CleanMemory();
 
-        yield return new WaitForSeconds(3);
-
+        yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(i);
 

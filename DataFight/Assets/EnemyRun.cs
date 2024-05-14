@@ -23,11 +23,21 @@ public class EnemyRun : MonoBehaviour
         anim = GetComponent<Animator>();
         currentPoint = pointA.transform;
 
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        Enemy_Health health = GetComponent<Enemy_Health>();
+
+        if (health != null)
+        {
+            isDead = health.isDead;
+
+        }
+        
         // Csak mozgás, ha az enemy nem halott
         if (!isDead)
         {
@@ -58,6 +68,11 @@ public class EnemyRun : MonoBehaviour
                 currentPoint = pointB.transform;
             }
         }
+        else
+        {
+            rb.velocity = Vector2.zero;
+
+        }
     }
 
     public void flip()
@@ -67,16 +82,16 @@ public class EnemyRun : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    // A bullet ütközésének kezelése
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Bullet"))
-        {
-            // Ha az enemyhez ütközik a bullet, megállítjuk az enemy mozgását
-            rb.velocity = Vector2.zero;
-            isDead = true; // Az enemy mostantól halott
-        }
-    }
+    //// A bullet ütközésének kezelése
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.CompareTag("Bullet"))
+    //    {
+    //        // Ha az enemyhez ütközik a bullet, megállítjuk az enemy mozgását
+    //        rb.velocity = Vector2.zero;
+    //        isDead = true; // Az enemy mostantól halott
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {

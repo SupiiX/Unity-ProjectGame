@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class Enemy_Health : MonoBehaviour
 {
-    public int maxHealth = 10;
+    public int maxHealth = 30;
     private int currentHealth;
 
     public GameObject puffDustAnimation;
     private Animator puffAnimator;
 
-   private Rigidbody2D rb;
+    private Collider2D obstacleCollider;
 
+    private Rigidbody2D rb;
+
+    public bool isDead = false;
 
     void Start()
     {
         currentHealth = maxHealth;
         puffAnimator = puffDustAnimation.GetComponent<Animator>();
 
-       rb = GetComponent<Rigidbody2D>();
+        obstacleCollider = GetComponent<Collider2D>();
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void TakeDamage(int amount)
@@ -26,11 +31,11 @@ public class Enemy_Health : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            rb.velocity = Vector2.zero;
+           // rb.velocity = Vector2.zero;
 
             Die();
         }
-        Debug.Log($"{amount} damage taken");
+        //Debug.Log($"{amount} damage taken");
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -50,10 +55,14 @@ public class Enemy_Health : MonoBehaviour
         // Kikapcsoljuk az enemy sprite-ját
         GetComponent<SpriteRenderer>().enabled = false;
 
-      //  rb.velocity = Vector2.zero;
+        obstacleCollider.enabled = false;
+
+        //  rb.velocity = Vector2.zero;
 
         // Lejátszuk a puffDust animációt
         puffAnimator.SetBool("DashDust", true);
+
+        isDead = true;
 
         // Várunk egy kicsit, hogy lejátssza az animációt
         StartCoroutine(DestroyAfterAnimation());
