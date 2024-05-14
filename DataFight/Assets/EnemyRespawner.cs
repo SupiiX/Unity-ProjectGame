@@ -4,39 +4,36 @@ using UnityEngine;
 
 public class EnemyRespawner : MonoBehaviour
 {
-    // Az enemy prefab
     public GameObject enemyPrefab;
+    public Transform[] spawnPositions;
+    public float initialSpawnInterval = 5f;
+    public float minSpawnInterval = 1f;
+    public float intervalDecreaseRate = 0.1f;
 
-    public Transform[] spawnPositions; // Több spawnpozíció
-
-    // Az spawnolás idõköze
-    public float spawnInterval = 5f;
-
-    // Az utolsó spawnolás ideje
+    private float spawnInterval;
     private float lastSpawnTime = 0f;
 
-    // Update függvény
+    void Start()
+    {
+        spawnInterval = initialSpawnInterval;
+    }
+
     void Update()
     {
-        // Idõ ellenõrzése
         if (Time.time - lastSpawnTime >= spawnInterval)
         {
-            // Spawnolás
             SpawnEnemy();
-
-            // Utolsó spawnolás ideje frissítése
             lastSpawnTime = Time.time;
+
+            // Csökkentjük a spawnInterval értékét
+            spawnInterval = Mathf.Max(minSpawnInterval, spawnInterval - intervalDecreaseRate);
         }
     }
 
-    // Enemy spawnolása
     void SpawnEnemy()
     {
-        // Véletlenszerûen válasszunk spawnpozíciót
         int randomIndex = Random.Range(0, spawnPositions.Length);
         Vector3 spawnPosition = spawnPositions[randomIndex].position;
-
-        // Pozícionálás
 
         if (randomIndex == 0)
         {
@@ -45,12 +42,8 @@ public class EnemyRespawner : MonoBehaviour
         else
         {
             spawnPosition.x += Random.Range(-2f, 0f);
-
         }
 
-      
-
-        // Spawnolás
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
 }

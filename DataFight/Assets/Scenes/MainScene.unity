@@ -4125,7 +4125,9 @@ MonoBehaviour:
   spawnPositions:
   - {fileID: 663332896}
   - {fileID: 317572455}
-  spawnInterval: 4
+  initialSpawnInterval: 5
+  minSpawnInterval: 1
+  intervalDecreaseRate: 0.2
 --- !u!114 &1025955416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6756,7 +6758,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1323987839
-  m_SortingLayer: -3
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 34b9636cb9d71154e8152d9fe59f8213, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7161,7 +7163,7 @@ MonoBehaviour:
   startPoint: {fileID: 594019687}
   endPoint: {fileID: 873807670}
   minSpawnInterval: 10
-  maxSpawnInterval: 25
+  maxSpawnInterval: 20
 --- !u!1 &1824751671
 GameObject:
   m_ObjectHideFlags: 0
@@ -8491,6 +8493,14 @@ PrefabInstance:
     - target: {fileID: 2390961728018962928, guid: ba0164a4b0e0aa741afb13b46d4cd8fa, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387718476906289226, guid: ba0164a4b0e0aa741afb13b46d4cd8fa, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387718476906289226, guid: ba0164a4b0e0aa741afb13b46d4cd8fa, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8341484278440906871, guid: ba0164a4b0e0aa741afb13b46d4cd8fa, type: 3}
       propertyPath: pointA

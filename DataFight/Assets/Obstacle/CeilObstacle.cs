@@ -13,7 +13,7 @@ public class CeilObstacle : MonoBehaviour
     private Animator PuffAnimator;
     public bool isDestroyed = false;
 
-    private Collider2D obstacleCollider;
+    private Collider2D[] obstacleCollider;
 
     private Rigidbody2D rb;
 
@@ -25,7 +25,7 @@ public class CeilObstacle : MonoBehaviour
         PuffAnimator = PuffAnimation.GetComponent<Animator>();
 
         // Collider referenciájának elmentése
-        obstacleCollider = GetComponent<Collider2D>();
+        obstacleCollider = GetComponents<Collider2D>();
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -71,8 +71,10 @@ public class CeilObstacle : MonoBehaviour
         //obstacleCollider.isTrigger = false;
 
         // ??
-        obstacleCollider.enabled = false;
-        obstacleCollider.enabled = false;
+        foreach (Collider2D col in obstacleCollider)
+        {
+            col.enabled = false;
+        }
         rb.velocity = Vector2.zero;
         //
 
@@ -121,9 +123,12 @@ public class CeilObstacle : MonoBehaviour
         // Akadály sprite-jának kikapcsolása
         GetComponent<SpriteRenderer>().enabled = false;
         // Collider trigger tulajdonságának kikapcsolása
-        
+
         // ?? 
-        obstacleCollider.enabled = false;
+        foreach (Collider2D col in obstacleCollider)
+        {
+            col.enabled = false;
+        }
         rb.velocity = Vector2.zero;
         //
 

@@ -81,7 +81,7 @@ public class EnemyRun : MonoBehaviour
         localScale.x *= -1;
         transform.localScale = localScale;
     }
-
+    
     //// A bullet ütközésének kezelése
     //private void OnTriggerEnter2D(Collider2D other)
     //{

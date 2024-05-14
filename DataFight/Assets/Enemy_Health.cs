@@ -10,7 +10,7 @@ public class Enemy_Health : MonoBehaviour
     public GameObject puffDustAnimation;
     private Animator puffAnimator;
 
-    private Collider2D obstacleCollider;
+    private Collider2D[] obstacleCollider;
 
     private Rigidbody2D rb;
 
@@ -21,7 +21,7 @@ public class Enemy_Health : MonoBehaviour
         currentHealth = maxHealth;
         puffAnimator = puffDustAnimation.GetComponent<Animator>();
 
-        obstacleCollider = GetComponent<Collider2D>();
+        obstacleCollider = GetComponents<Collider2D>();
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -40,12 +40,27 @@ public class Enemy_Health : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+      //  PlayerMove playerMove = other.GetComponent<PlayerMove>();
+
+      //  ResetPlayer(playerMove);
+
         if (other.CompareTag("Player"))
         {
+            PlayerMove playerMove = other.gameObject.GetComponent<PlayerMove>();
+                    
+            //if (playerMove != null)
+            //{
+            //    playerMove.isGrounded = true;
+            //}
+
             rb.velocity = Vector2.zero;
 
-
             Die();
+
+            playerMove.isGrounded = true;
+
+            Debug.Log($"{playerMove.isGrounded}");
         }
     }
 
@@ -55,7 +70,12 @@ public class Enemy_Health : MonoBehaviour
         // Kikapcsoljuk az enemy sprite-ját
         GetComponent<SpriteRenderer>().enabled = false;
 
-        obstacleCollider.enabled = false;
+        // obstacleCollider.enabled = false;
+
+        foreach (Collider2D col in obstacleCollider)
+        {
+            col.enabled = false;
+        }
 
         //  rb.velocity = Vector2.zero;
 
@@ -76,4 +96,15 @@ public class Enemy_Health : MonoBehaviour
         // Megsemmisítjük az enemyt
         Destroy(gameObject);
     }
+
+    private void ResetPlayer(PlayerMove playerMove)
+    {
+        Debug.Log("RESET");
+
+        if (playerMove != null)
+        {
+            playerMove.isGrounded = true;
+        }
+    }
+
 }
