@@ -19,7 +19,7 @@ public class PlusPoint : MonoBehaviour
             // Add points to the score and destroy PlusPoint
             if (scoreManager != null)
             {
-                scoreManager.AddPoints(1); // Assuming score is incremented by 1 point
+                scoreManager.AddPoints(3); // Assuming score is incremented by 1 point
             }
             Destroy(gameObject);
         }

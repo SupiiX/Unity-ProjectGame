@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,10 @@ public class GameManage : MonoBehaviour
     public GameObject Image;
 
     public GameObject PauseMenu;
+
+    public TMP_Text ScoreConter;
+
+    public TMP_Text FinalCounter;
 
     //public Animator transitionAnimator;
 
@@ -40,15 +45,18 @@ public class GameManage : MonoBehaviour
     }
 
 
-
     public void GameEnd()
     {
 
         Time.timeScale = 0;
 
         // itt meg meg kell allitani az idot
-
+             
+        
         Endscreen.SetActive(true);
+
+        FinalCounter.text = GetComponent<CounterScript>().Counter.text;
+
     }
 
     public void Restart()

@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -215873783
-  m_SortingLayer: -3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,6 +170,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 2495811205460091500, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 1146658600032111400, guid: 5577288e3182c9d4b8687c9f0c5881a6, type: 3}
     - target: {fileID: 2495811205460091500, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: puffDustAnimation
       value: 
