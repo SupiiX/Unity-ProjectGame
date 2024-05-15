@@ -173,7 +173,7 @@ PrefabInstance:
     - target: {fileID: 2495811205460091500, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: scoreManager
       value: 
-      objectReference: {fileID: 1146658600032111400, guid: 5577288e3182c9d4b8687c9f0c5881a6, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2495811205460091500, guid: 5285b6a60b064c4468df4747415b2402, type: 3}
       propertyPath: puffDustAnimation
       value: 

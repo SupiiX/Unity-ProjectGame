@@ -19,7 +19,7 @@ public class Enemy_Health : MonoBehaviour
 
     public bool DeadByPlayer = false;
        
-    public ScoreManager scoreManager;
+    //public ScoreManager scoreManager;
 
     void Start()
     {
@@ -52,6 +52,8 @@ public class Enemy_Health : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+             other.gameObject.GetComponent<PlayerHealth>().DecreaseHealth(1);
+
             PlayerMove playerMove = other.gameObject.GetComponent<PlayerMove>();
 
             //if (playerMove != null)
@@ -91,14 +93,22 @@ public class Enemy_Health : MonoBehaviour
 
         isDead = true;
 
-        if (!DeadByPlayer && scoreManager != null)
-        {
+
+        //  Debug.Log($"{ScoreManager.currentScore.ToString()}");
+
+        PP.POINTS += 1;
+
+        Debug.Log($"{PP.POINTS}");
+
+
+        //if (!DeadByPlayer && scoreManager != null)
+        //{
          
             
-                scoreManager.AddPoints(1); // Assuming score is incremented by 1 point
+        //     scoreManager.AddPoints(1); // Assuming score is incremented by 1 point
             
 
-        }
+        //}
 
 
 

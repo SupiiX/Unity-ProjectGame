@@ -16,6 +16,11 @@ public class PlusPoint : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Player"))
         {
+            PP.POINTS += 1;
+
+            Debug.Log($"{PP.POINTS}");
+
+
             // Add points to the score and destroy PlusPoint
             if (scoreManager != null)
             {

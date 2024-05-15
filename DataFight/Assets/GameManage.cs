@@ -64,6 +64,8 @@ public class GameManage : MonoBehaviour
         Time.timeScale = 1;
         Image.SetActive(true);
 
+        PP.POINTS = 0;
+
         TransitionAnimator.SetTrigger("End");
 
         StartCoroutine(LoadLevel(1));
@@ -74,6 +76,8 @@ public class GameManage : MonoBehaviour
     {
         Time.timeScale = 1;
         Image.SetActive(true);
+
+        PP.POINTS = 0;
 
         TransitionAnimator.SetTrigger("End");
 

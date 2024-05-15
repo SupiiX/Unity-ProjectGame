@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
         
         if (other.CompareTag("Enemy"))
         {
-            DecreaseHealth(1);
+           // DecreaseHealth(1);
         }
         else if (other.CompareTag("Obstacle"))
         {
