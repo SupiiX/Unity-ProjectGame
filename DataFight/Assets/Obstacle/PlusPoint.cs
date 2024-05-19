@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlusPoint : MonoBehaviour
 {
-    public ScoreManager scoreManager;
+    //public ScoreManager scoreManager;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,16 +16,24 @@ public class PlusPoint : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            PP.POINTS += 1;
 
-            Debug.Log($"{PP.POINTS}");
-
-
-            // Add points to the score and destroy PlusPoint
-            if (scoreManager != null)
+            if (ScoreManager.Instance != null)
             {
-                scoreManager.AddPoints(3); // Assuming score is incremented by 1 point
+                ScoreManager.Instance.AddPoints(4);
             }
+
+            PlayerMove playerMove = other.gameObject.GetComponent<PlayerMove>();
+
+            playerMove.isGrounded = true;
+
+            Debug.Log($"{playerMove.isGrounded}");
+
+
+            //// Add points to the score and destroy PlusPoint
+            //if (scoreManager != null)
+            //{
+            //    scoreManager.AddPoints(3); // Assuming score is incremented by 1 point
+            //}
             Destroy(gameObject);
         }
     }

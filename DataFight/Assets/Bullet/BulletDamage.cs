@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class BulletDamage : MonoBehaviour
 {
-    public int damage = 10;  // Lövedék sebzése
-    public float lifeTime = 2f;  // Lövedék élettartama másodpercekben
+    public int damage = 10;  
+    public float lifeTime = 2f;
     public float bulletdeadlifetime = 0.4f;
 
     private Animator animator;
 
-    private bool hasCollided = false; // Változó, amely jelzi, hogy a lövedék ütközött-e már
+    private bool hasCollided = false; 
 
 
     void Start()
@@ -19,7 +19,7 @@ public class BulletDamage : MonoBehaviour
         animator = GetComponent<Animator>();
 
         
-        // Automatikusan töröljük a lövedéket az élettartam lejárta után
+       
         Destroy(gameObject, lifeTime);
     }
 
@@ -28,13 +28,12 @@ public class BulletDamage : MonoBehaviour
 
         if (hasCollided)
         {
-            // Állítsuk meg a lövedék mozgását, ha ütközött
+            
             Rigidbody2D bulletRb = GetComponent<Rigidbody2D>();
             bulletRb.velocity = Vector2.zero;
 
-            animator.SetBool("BulletDead", true); // Animáció lejátszása
-
-            //float animationLength = animator.GetCurrentAnimatorStateInfo(0).length;
+            animator.SetBool("BulletDead", true); 
+            
 
             Invoke("DestroyObject", bulletdeadlifetime);
 

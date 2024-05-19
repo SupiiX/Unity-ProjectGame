@@ -19,7 +19,7 @@ public class Score : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+           // Destroy(gameObject);
         }
     }
 
@@ -67,15 +67,15 @@ public class Score : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class ScoreEntry
-{
-    public int points;
-    public float time;
+//[System.Serializable]
+//public class ScoreEntry
+//{
+//    public int points;
+//    public float time;
 
-    public ScoreEntry(int points, float time)
-    {
-        this.points = points;
-        this.time = time;
-    }
-}
+//    public ScoreEntry(int points, float time)
+//    {
+//        this.points = points;
+//        this.time = time;
+//    }
+//}

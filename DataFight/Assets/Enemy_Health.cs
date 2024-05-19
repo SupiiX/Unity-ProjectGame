@@ -94,21 +94,16 @@ public class Enemy_Health : MonoBehaviour
         isDead = true;
 
 
-        //  Debug.Log($"{ScoreManager.currentScore.ToString()}");
+         //  Debug.Log($"{ScoreManager.currentScore.ToString()}");
+    
+            if (ScoreManager.Instance != null && !DeadByPlayer)
+            {
+                ScoreManager.Instance.AddPoints(1);
+            }
+        
 
-        PP.POINTS += 1;
+        
 
-        Debug.Log($"{PP.POINTS}");
-
-
-        //if (!DeadByPlayer && scoreManager != null)
-        //{
-         
-            
-        //     scoreManager.AddPoints(1); // Assuming score is incremented by 1 point
-            
-
-        //}
 
 
 
